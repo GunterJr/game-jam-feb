@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b3lnfnn3odxmx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8yd"]
+height = 1.565
+
+[sub_resource type="SphereMesh" id="SphereMesh_u4qym"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_81iw3"]
+height = 1.5419922
+
+[node name="Benson" type="CharacterBody3D" unique_id=193555425]
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1594903681]
+transform = Transform3D(0.23047434, -0.9730784, 0, 0.9730784, 0.23047434, 0, 0, 0, 1, 0.089959145, 0, 0)
+mesh = SubResource("CapsuleMesh_dp8yd")
+
+[node name="Head" type="MeshInstance3D" parent="." unique_id=756881920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6121858, 0.4402238, 0)
+mesh = SubResource("SphereMesh_u4qym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=833329893]
+transform = Transform3D(0.25881907, -0.9659258, 0, 0.9659258, 0.25881907, 0, 0, 0, 1, 0.08065103, -0.021610383, 0)
+shape = SubResource("CapsuleShape3D_81iw3")
