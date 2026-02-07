@@ -181,6 +181,41 @@ radius = 3.0
 height = 2.2190056
 sides = 6
 
+[node name="Honeycomb23" type="CSGCylinder3D" parent="Honeycombs" unique_id=491942694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 16.42931, 26)
+use_collision = true
+radius = 3.0
+height = 11.8681965
+sides = 6
+
+[node name="Honeycomb24" type="CSGCylinder3D" parent="Honeycombs" unique_id=1812242687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.417969, 1.0547514, 21.960693)
+use_collision = true
+radius = 2.0
+height = 6.109503
+sides = 6
+
+[node name="Honeycomb25" type="CSGCylinder3D" parent="Honeycombs" unique_id=1567127881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.417969, 16.145533, 21.960693)
+use_collision = true
+radius = 2.0
+height = 10.763688
+sides = 6
+
+[node name="Honeycomb26" type="CSGCylinder3D" parent="Honeycombs" unique_id=1768735010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.7540855, 3)
+use_collision = true
+radius = 2.0
+height = 7.508171
+sides = 6
+
+[node name="Honeycomb27" type="CSGCylinder3D" parent="Honeycombs" unique_id=2042702697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 17.424171, 3)
+use_collision = true
+radius = 2.0
+height = 10.094261
+sides = 6
+
 [node name="SouthWall" type="CSGCombiner3D" parent="." unique_id=372922195]
 use_collision = true
 
@@ -294,6 +329,77 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 9.5, -4.5)
 size = Vector3(7, 24, 2)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=1045895958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 22, 16.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 22, 16.5)
 use_collision = true
-size = Vector3(64, 1, 58)
+size = Vector3(73, 1, 58)
+
+[node name="EastWall" type="CSGCombiner3D" parent="." unique_id=1712275340]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=2065376726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.5, 5)
+size = Vector3(13, 10, 11)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="EastWall" unique_id=1874651984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 0.5, 18)
+size = Vector3(8, 6, 15)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="EastWall" unique_id=68985190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 10, 11.5)
+size = Vector3(2, 25, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="EastWall" unique_id=869022971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 16.5, 16)
+size = Vector3(8, 2, 19)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="EastWall" unique_id=1911029602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 14, 26.5)
+size = Vector3(10, 7, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="EastWall" unique_id=1367156630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 11.5, 21)
+size = Vector3(8, 2, 9)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="EastWall" unique_id=1711689014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 20, 22.5)
+size = Vector3(10, 5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="EastWall" unique_id=15481185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 14, 21)
+size = Vector3(2, 7, 9)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="EastWall" unique_id=2011836226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, 4, 15)
+size = Vector3(6, 9, 9)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="EastWall" unique_id=691756709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5, 11, 18)
+size = Vector3(2, 23, 15)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="EastWall" unique_id=410038413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 11, 9.5)
+size = Vector3(1, 23, 20)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="EastWall" unique_id=1888607376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 11, 20.5)
+size = Vector3(7, 23, 2)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="EastWall" unique_id=786348034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 11, -2)
+size = Vector3(21, 23, 3)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="EastWall" unique_id=1982588586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 10, 3)
+size = Vector3(2, 11, 7)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="EastWall" unique_id=1062429389]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -40.5, 11, 0.13397461)
+size = Vector3(1, 23, 5)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="EastWall" unique_id=1463986528]
+transform = Transform3D(0.8647923, 0, 0.5021297, 0, 1, 0, -0.5021297, 0, 0.8647923, -40.5, 11, 19.133974)
+size = Vector3(1, 23, 5)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="EastWall" unique_id=482813024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -4.5)
+size = Vector3(31, 25, 4)
