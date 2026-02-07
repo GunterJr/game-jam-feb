@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z += move_direction.z * flight_speed * delta
 		
 		var target_angle := Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
-		body.global_rotation.y = target_angle
+		body.global_rotation.y = lerp(target_angle, body.global_rotation.y, 0.6)
 		
 		#handle dash
 		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
