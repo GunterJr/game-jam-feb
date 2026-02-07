@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3lnfnn3odxmx"]
 
 [ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
-[ext_resource type="Script" uid="uid://ce4hm7kncdtus" path="res://scripts/camera_arm.gd" id="2_81iw3"]
+[ext_resource type="Script" path="res://scripts/camera_arm.gd" id="2_81iw3"]
 [ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4qym"]

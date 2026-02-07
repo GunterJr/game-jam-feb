@@ -2,13 +2,13 @@ extends CharacterBody3D
 
 @export var speed : float = 5.0
 @export var flight_speed : float = 10.0
-@export var friction : float = 0.9
+@export var friction : float = 0.94
 @export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
 
-@export var flight_velocity: float = 10
+@export var flight_velocity: float = 0.2
 @export var flight_time: float = 3.0
-@export var max_flight_speed: float = 40
+@export var max_flight_speed: float = 4
 
 @export var dash_velocity: float = 10
 var flying : bool = false
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 			buzzer.play()
 		if(velocity.y < 0):
 			velocity.y = 0
-		velocity.y += flight_velocity * delta
+		velocity.y += flight_velocity
 		current_flight_time += delta
 		flew.emit(current_flight_time)
 
@@ -93,10 +93,10 @@ func _physics_process(delta: float) -> void:
 		
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
 		
-		if is_on_floor():
+		if is_on_floor() and up_direction == Vector3.UP:
 			velocity.x += move_direction.x * speed * delta
 			velocity.z += move_direction.z * speed * delta
-		else:
+		elif !is_on_floor():
 			velocity.x += move_direction.x * flight_speed * delta
 			velocity.z += move_direction.z * flight_speed * delta
 		
@@ -107,12 +107,13 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
 			velocity = -camera_basis.z * dash_velocity;
 	
-	if is_on_floor():
+	if is_on_floor() and up_direction == Vector3.UP:
 		velocity.x *= friction
 		velocity.z *= friction
-	else:
+	elif !is_on_floor():
 		velocity.x *= air_friction
 		velocity.z *= air_friction
+	
 	
 	move_and_slide()
 	
