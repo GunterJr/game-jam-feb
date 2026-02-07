@@ -98,5 +98,6 @@ environment = SubResource("Environment_18mwh")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1599625562]
 
 [node name="GUI" parent="CanvasLayer" unique_id=901090881 instance=ExtResource("2_akchg")]
+mouse_filter = 1
 
 [connection signal="flew" from="Benson" to="CanvasLayer/GUI" method="update_flight"]
