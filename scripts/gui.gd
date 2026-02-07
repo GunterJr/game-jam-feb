@@ -5,12 +5,14 @@ extends Control
 @onready var flight_bar: ProgressBar = $MarginContainer/VBoxContainer/FlightBar
 @onready var patience_left: Label = $MarginContainer/VBoxContainer/PatienceLeft
 @onready var game_over: Label = $CenterContainer/GameOver
+@onready var score_label: Label = $MarginContainer2/ScoreLabel
 
 ## Really, this should not be stored in a GUI singleton, it probably should be 
 ## some other autoload for game state. Oh well.
 var has_letter : bool = false:
 	set(input):
 		has_letter = input
+		score_label.text = "Letters Delivered: " + str(GameManager.score)
 		letter_label(input)
 
 func update_patience(new: float):

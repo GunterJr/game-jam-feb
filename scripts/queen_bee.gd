@@ -33,6 +33,7 @@ func on_player_enter(body: Node3D) -> void:
 		speak("Shouldn't you bee doing something?")
 		return
 	print("Letter sent!")
+	GameManager.score += 1
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
 	# TODO: scrolling text
 	speak(phrase)

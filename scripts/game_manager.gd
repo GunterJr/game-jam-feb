@@ -6,6 +6,7 @@ extends Node
 ## game progresses.
 var patience : float = 30
 var timing : bool = false
+var score : int = 0
 @export var gaming : bool = false:
 	set(val):
 		gaming = val
