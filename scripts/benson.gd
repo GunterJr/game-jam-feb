@@ -15,6 +15,7 @@ var flying : bool = false
 var current_flight_time: float = 0:
 	set(val):
 		current_flight_time = val
+		current_flight_time = min(current_flight_time, flight_time)
 		GUI.update_flight(current_flight_time)
 		
 var current_velocity : Vector3 = Vector3(0, 0, 0)
@@ -53,12 +54,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and !is_on_wall_only():
 		var gravity_strength := get_gravity().length()
 		velocity += -up_direction * gravity_strength * delta
-	
-	# grabbing wall
-	if is_on_wall_only():
-		var wall_normal = get_wall_normal()
-		velocity = Vector3(0, 0, 0)
-		up_direction = wall_normal
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -117,7 +112,7 @@ func _physics_process(delta: float) -> void:
 		body.global_rotation.y = lerp_angle(target_angle, body.global_rotation.y, 0.6)
 		
 		#handle dash
-		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time + 0.4 < flight_time:
+		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
 			velocity = -camera_basis.z * dash_velocity;
 			dash_sound.play()
 			current_flight_time += 0.4
