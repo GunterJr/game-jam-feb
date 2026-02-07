@@ -76,3 +76,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0
 		
 	move_and_slide()
+
+## "Refreshes" the players flight time. This method could techincally be placed
+## in any object that flys.
+func refresh():
+	current_flight_time = 0
