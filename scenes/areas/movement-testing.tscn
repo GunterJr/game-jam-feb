@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://82t42v7w6sgc"]
 
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_0kmkr"]
-[ext_resource type="PackedScene" uid="uid://368t47su1g8u" path="res://scenes/misc/gui.tscn" id="2_akchg"]
 [ext_resource type="PackedScene" uid="uid://d3w30uoyca4fd" path="res://scenes/objects/honey-ball.tscn" id="3_18mwh"]
 [ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/spawnpoint.tscn" id="3_64h5n"]
+[ext_resource type="PackedScene" uid="uid://dfkgkk2hqb77" path="res://scenes/actors/suitor-bee.tscn" id="5_5h40q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hakr"]
 size = Vector3(3, 1, 3)
@@ -91,8 +91,14 @@ shape = SubResource("BoxShape3D_5hakr")
 transform = Transform3D(3, 0, 0, 0, -1, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_0kmkr")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D6" unique_id=1018382128]
-transform = Transform3D(3, 0, 0, 0, -1, 0, 0, 0, 3, 0, 0, 10.637159)
+[node name="StaticBody3D7" type="StaticBody3D" parent="." unique_id=991738707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.50688237, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7" unique_id=1807492554]
+shape = SubResource("BoxShape3D_5hakr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7" unique_id=768550496]
+transform = Transform3D(3, 0, 0, 0, -1, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_0kmkr")
 
 [node name="Benson" parent="." unique_id=193555425 node_paths=PackedStringArray("spawnpoint") instance=ExtResource("1_0kmkr")]
@@ -102,11 +108,6 @@ spawnpoint = NodePath("../Spawnpoint")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1927498808]
 environment = SubResource("Environment_18mwh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1599625562]
-
-[node name="GUI" parent="CanvasLayer" unique_id=901090881 instance=ExtResource("2_akchg")]
-mouse_filter = 1
-
 [node name="HoneyBall" parent="." unique_id=726348483 instance=ExtResource("3_18mwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4648788, -0.9638493, -1.9703925)
 honey_type = 1
@@ -114,4 +115,5 @@ honey_type = 1
 [node name="Spawnpoint" parent="." unique_id=71272684 instance=ExtResource("3_64h5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9007504, 0.09811757, -1.4054432)
 
-[connection signal="flew" from="Benson" to="CanvasLayer/GUI" method="update_flight"]
+[node name="SuitorBee" parent="." unique_id=643648152 instance=ExtResource("5_5h40q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.076533, 0.19311757, 9.865849)

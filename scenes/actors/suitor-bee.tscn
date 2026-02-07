@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dfkgkk2hqb77"]
 
+[ext_resource type="Script" uid="uid://l1ujqc4mr02m" path="res://scripts/suitor_bee.gd" id="1_d226x"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_p8kpe"]
 radius = 0.1
 height = 0.4
@@ -14,13 +16,39 @@ height = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tyor"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="SuitorBee" type="StaticBody3D" unique_id=643648152]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p8kpe"]
+radius = 0.1
+height = 0.3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=63989046]
+[sub_resource type="BoxShape3D" id="BoxShape3D_d226x"]
+size = Vector3(1.9696045, 0.7180176, 1.5402832)
+
+[node name="SuitorBee" type="StaticBody3D" unique_id=643648152]
+script = ExtResource("1_d226x")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=63989046]
 mesh = SubResource("CapsuleMesh_p8kpe")
 surface_material_override/0 = SubResource("StandardMaterial3D_d226x")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1423929763]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1423929763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16721326, 0)
 mesh = SubResource("SphereMesh_p8kpe")
 surface_material_override/0 = SubResource("StandardMaterial3D_1tyor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2059620147]
+shape = SubResource("CapsuleShape3D_p8kpe")
+
+[node name="Voice" type="Label3D" parent="." unique_id=165716873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36995763, 0)
+pixel_size = 0.003
+billboard = 1
+text = "My name is awesome guy"
+
+[node name="CollectTrigger" type="Area3D" parent="." unique_id=1762402684]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectTrigger" unique_id=1332121387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035949707, 0.14099121, -0.01550293)
+shape = SubResource("BoxShape3D_d226x")
+
+[connection signal="body_entered" from="CollectTrigger" to="." method="on_player_enter"]

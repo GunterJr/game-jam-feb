@@ -22,11 +22,6 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
 
-
-## Emits each frame the player is flying.
-## TODO: retarded
-signal flew(new_time)
-
 ## Set Benson's position to the listed spawnpoint.
 func respawn() -> void:
 	if spawnpoint:
@@ -81,7 +76,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0
 		velocity.y += flight_velocity
 		current_flight_time += delta
-		flew.emit(current_flight_time)
+		GUI.update_flight(current_flight_time)
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_vector : Vector2 = Vector2(
@@ -111,7 +106,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z += move_direction.z * flight_speed * delta
 		
 		var target_angle := Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
-		body.global_rotation.y = lerp(target_angle, body.global_rotation.y, 0.6)
+		body.global_rotation.y = lerpf(target_angle, body.global_rotation.y, 0.6)
 		
 		#handle dash
 		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
@@ -126,7 +121,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
-	
 	current_velocity = velocity
 
 ## "Refreshes" the players flight time. This method could techincally be placed
