@@ -3,12 +3,12 @@ extends CharacterBody3D
 @export var speed : float = 5.0
 @export var flight_speed : float = 10.0
 @export var friction : float = 0.9
-@export var air_friction : float = 0.95
+@export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
 
 @export var flight_velocity: float = 10
 @export var flight_time: float = 3.0
-@export var max_flight_speed: float = 20
+@export var max_flight_speed: float = 40
 
 @export var dash_velocity: float = 10
 var flying : bool = false
