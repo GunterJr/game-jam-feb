@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
 [ext_resource type="Script" uid="uid://ce4hm7kncdtus" path="res://scenes/actors/camera_arm.gd" id="2_81iw3"]
+[ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4qym"]
 albedo_color = Color(1, 1, 0, 1)
@@ -51,3 +52,6 @@ max_vert = 0.26354471705114374
 [node name="Camera3D" type="Camera3D" parent="CameraArm" unique_id=889376277]
 transform = Transform3D(1, 8.258129e-09, 7.871712e-10, -8.258128e-09, 0.98199177, 0.18892407, 7.871641e-10, -0.18892407, 0.98199177, 0.03952786, 0.7038084, 2.1421719)
 fov = 69.0
+
+[node name="Buzzer" type="AudioStreamPlayer3D" parent="." unique_id=1896265478]
+stream = ExtResource("3_8dec6")

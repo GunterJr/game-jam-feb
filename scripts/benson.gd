@@ -7,9 +7,13 @@ extends CharacterBody3D
 var flying : bool = false
 var current_flight_time: float = 0
 
-
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
+@onready var buzzer: AudioStreamPlayer3D = $Buzzer
+
+## Emits each frame the player is flying.
+## TODO: retarded
+signal flew(new_time)
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -31,11 +35,15 @@ func _physics_process(delta: float) -> void:
 	# Handle flight.
 	if is_on_floor():
 		current_flight_time = 0
+		buzzer.stop()
 	if Input.is_action_just_released("jump"):
 		flying = true
 	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying:
+		if not buzzer.playing:
+			buzzer.play()
 		velocity.y = flight_velocity
 		current_flight_time += delta
+		flew.emit(current_flight_time)
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_vector : Vector2 = Vector2(
