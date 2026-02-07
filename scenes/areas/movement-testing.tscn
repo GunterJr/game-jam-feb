@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_0kmkr"]
 [ext_resource type="PackedScene" uid="uid://368t47su1g8u" path="res://scenes/misc/gui.tscn" id="2_akchg"]
+[ext_resource type="PackedScene" uid="uid://d3w30uoyca4fd" path="res://scenes/objects/honey-ball.tscn" id="3_18mwh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hakr"]
 size = Vector3(3, 1, 3)
@@ -99,5 +100,9 @@ environment = SubResource("Environment_18mwh")
 
 [node name="GUI" parent="CanvasLayer" unique_id=901090881 instance=ExtResource("2_akchg")]
 mouse_filter = 1
+
+[node name="HoneyBall" parent="." unique_id=726348483 instance=ExtResource("3_18mwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4648788, -0.9638493, -1.9703925)
+honey_type = 1
 
 [connection signal="flew" from="Benson" to="CanvasLayer/GUI" method="update_flight"]

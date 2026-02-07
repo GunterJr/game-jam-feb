@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		current_flight_time = 0
 		buzzer.stop()
+		flying = false
 	if Input.is_action_just_released("jump"):
 		flying = true
 	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
@@ -103,3 +104,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	current_velocity = velocity
+
+## "Refreshes" the players flight time. This method could techincally be placed
+## in any object that flys.
+func refresh():
+	current_flight_time = 0
