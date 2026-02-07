@@ -13,7 +13,6 @@ var current_flight_time: float = 0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 
 func _physics_process(delta: float) -> void:
 	

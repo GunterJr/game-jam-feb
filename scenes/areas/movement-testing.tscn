@@ -13,6 +13,15 @@ size = Vector3(3, 1, 5.9918213)
 [sub_resource type="BoxShape3D" id="BoxShape3D_akchg"]
 size = Vector3(3, 1, 4.505371)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0kmkr"]
+
+[sub_resource type="Sky" id="Sky_akchg"]
+sky_material = SubResource("ProceduralSkyMaterial_0kmkr")
+
+[sub_resource type="Environment" id="Environment_18mwh"]
+background_mode = 2
+sky = SubResource("Sky_akchg")
+
 [node name="MovementTesting" type="Node3D" unique_id=382122762]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=563179022]
@@ -81,3 +90,6 @@ mesh = SubResource("BoxMesh_0kmkr")
 
 [node name="Benson" parent="." unique_id=193555425 instance=ExtResource("1_0kmkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06578946, 0.66000307, 0.14967513)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1927498808]
+environment = SubResource("Environment_18mwh")
