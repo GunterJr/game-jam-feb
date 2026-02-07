@@ -127,8 +127,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	print(up_direction)
-	
 	current_velocity = velocity
 
 ## "Refreshes" the players flight time. This method could techincally be placed

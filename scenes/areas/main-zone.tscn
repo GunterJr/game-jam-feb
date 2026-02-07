@@ -1,15 +1,299 @@
 [gd_scene format=3 uid="uid://bbo2ofk01ux4r"]
 
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_et7hr"]
+[ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/spawnpoint.tscn" id="2_er1ne"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_et7hr"]
+
+[sub_resource type="Sky" id="Sky_et7hr"]
+sky_material = SubResource("ProceduralSkyMaterial_et7hr")
+
+[sub_resource type="Environment" id="Environment_er1ne"]
+background_mode = 2
+sky = SubResource("Sky_et7hr")
 
 [node name="MainZone" type="Node3D" unique_id=1094626090]
 
-[node name="Honeycomb" type="CSGCylinder3D" parent="." unique_id=1403945326]
-use_collision = true
-height = 0.1307373
-sides = 6
-
-[node name="Benson" parent="." unique_id=193555425 instance=ExtResource("1_et7hr")]
+[node name="Benson" parent="." unique_id=193555425 node_paths=PackedStringArray("spawnpoint") instance=ExtResource("1_et7hr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037091464, 0.2201654, -0.04039009)
+spawnpoint = NodePath("../Spawnpoint")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1187876192]
+environment = SubResource("Environment_er1ne")
+
+[node name="Spawnpoint" parent="." unique_id=71272684 instance=ExtResource("2_er1ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1136475, 7.605, -7.039551)
+
+[node name="Honeycombs" type="CSGCombiner3D" parent="." unique_id=1856012402]
+use_collision = true
+
+[node name="Honeycomb" type="CSGCylinder3D" parent="Honeycombs" unique_id=1403945326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9673157, 0)
+use_collision = true
+radius = 2.0
+height = 2.0653687
+sides = 6
+
+[node name="Honeycomb2" type="CSGCylinder3D" parent="Honeycombs" unique_id=747024172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.91177, 0)
+use_collision = true
+radius = 2.0
+height = 17.758171
+sides = 6
+
+[node name="Honeycomb3" type="CSGCylinder3D" parent="Honeycombs" unique_id=1926528514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.016342163, -2)
+use_collision = true
+radius = 2.0
+height = 4.0326843
+sides = 6
+
+[node name="Honeycomb4" type="CSGCylinder3D" parent="Honeycombs" unique_id=1272789512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.008171, 5)
+use_collision = true
+radius = 2.0
+height = 8.016342
+sides = 6
+
+[node name="Honeycomb5" type="CSGCylinder3D" parent="Honeycombs" unique_id=1316330269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5081711, 9)
+use_collision = true
+radius = 2.0
+height = 5.016342
+sides = 6
+
+[node name="Honeycomb6" type="CSGCylinder3D" parent="Honeycombs" unique_id=1062319150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 17.012257, -2)
+use_collision = true
+radius = 2.0
+height = 10.008171
+sides = 6
+
+[node name="Honeycomb7" type="CSGCylinder3D" parent="Honeycombs" unique_id=1303704273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 17.506128, 5)
+use_collision = true
+radius = 2.0
+height = 9.004086
+sides = 6
+
+[node name="Honeycomb8" type="CSGCylinder3D" parent="Honeycombs" unique_id=1539002404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.0163422, 4)
+use_collision = true
+radius = 2.0
+height = 6.0326843
+sides = 6
+
+[node name="Honeycomb9" type="CSGCylinder3D" parent="Honeycombs" unique_id=2045413477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 16.388279, 4)
+use_collision = true
+radius = 2.0
+height = 11.752043
+sides = 6
+
+[node name="Honeycomb10" type="CSGCylinder3D" parent="Honeycombs" unique_id=282751074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008171082, 14)
+use_collision = true
+radius = 2.0
+height = 4.016342
+sides = 6
+
+[node name="Honeycomb11" type="CSGCylinder3D" parent="Honeycombs" unique_id=557228776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 14.506128, 14)
+use_collision = true
+radius = 2.0
+height = 15.004086
+sides = 6
+
+[node name="Honeycomb12" type="CSGCylinder3D" parent="Honeycombs" unique_id=905200456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.2520428, 18)
+use_collision = true
+radius = 2.0
+height = 8.504086
+sides = 6
+
+[node name="Honeycomb13" type="CSGCylinder3D" parent="Honeycombs" unique_id=1114242431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 17.73629, 18)
+use_collision = true
+radius = 2.0
+height = 9.031506
+sides = 6
+
+[node name="Honeycomb14" type="CSGCylinder3D" parent="Honeycombs" unique_id=1915838295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.008171, 12)
+use_collision = true
+radius = 2.0
+height = 8.016342
+sides = 6
+
+[node name="Honeycomb15" type="CSGCylinder3D" parent="Honeycombs" unique_id=930909715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 16.757149, 12)
+use_collision = true
+radius = 2.0
+height = 10.502043
+sides = 6
+
+[node name="Honeycomb16" type="CSGCylinder3D" parent="Honeycombs" unique_id=2020023232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.8760214, 20)
+use_collision = true
+radius = 2.0
+height = 5.752043
+sides = 6
+
+[node name="Honeycomb17" type="CSGCylinder3D" parent="Honeycombs" unique_id=2135026649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 17.012257, -2)
+use_collision = true
+radius = 2.0
+height = 10.008171
+sides = 6
+
+[node name="Honeycomb18" type="CSGCylinder3D" parent="Honeycombs" unique_id=1068687716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.8760214, 20)
+use_collision = true
+radius = 2.0
+height = 5.752043
+sides = 6
+
+[node name="Honeycomb19" type="CSGCylinder3D" parent="Honeycombs" unique_id=1124120022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 15.907017, 20)
+use_collision = true
+radius = 2.0
+height = 11.938011
+sides = 6
+
+[node name="Honeycomb20" type="CSGCylinder3D" parent="Honeycombs" unique_id=1436497964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.2190056, 29)
+use_collision = true
+radius = 4.0
+height = 8.438011
+sides = 6
+
+[node name="Honeycomb21" type="CSGCylinder3D" parent="Honeycombs" unique_id=151925979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 18.164253, 29)
+use_collision = true
+radius = 4.0
+height = 8.109503
+sides = 6
+
+[node name="Honeycomb22" type="CSGCylinder3D" parent="Honeycombs" unique_id=1921174584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.8904972, 26)
+use_collision = true
+radius = 3.0
+height = 2.2190056
+sides = 6
+
+[node name="SouthWall" type="CSGCombiner3D" parent="." unique_id=372922195]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SouthWall" unique_id=358404969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -5)
+use_collision = true
+size = Vector3(13, 6, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SouthWall" unique_id=1075788925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6.5)
+use_collision = true
+size = Vector3(5, 1, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SouthWall" unique_id=19450981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, -6.5)
+use_collision = true
+size = Vector3(1, 7, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SouthWall" unique_id=1672130613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5.5, -6.5)
+use_collision = true
+size = Vector3(4, 4, 4)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="SouthWall" unique_id=1594892606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 8, -10.5)
+use_collision = true
+size = Vector3(10, 7, 4)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="SouthWall" unique_id=2059100916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 7.5, -8.5)
+use_collision = true
+size = Vector3(4, 8, 8)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="SouthWall" unique_id=1516606007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 17, -12)
+use_collision = true
+size = Vector3(10, 11, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="SouthWall" unique_id=1804057025]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -8.633975, 17, -11.5)
+use_collision = true
+size = Vector3(4, 11, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="SouthWall" unique_id=1092824886]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 2.366025, 17, -11.5)
+use_collision = true
+size = Vector3(4, 11, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="SouthWall" unique_id=776829727]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 17, -7.5)
+use_collision = true
+size = Vector3(7, 11, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="SouthWall" unique_id=1115489772]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 17, -7.5)
+use_collision = true
+size = Vector3(7, 11, 1)
+
+[node name="WestWall" type="CSGCombiner3D" parent="." unique_id=84669399]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=891903673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.26879883, 3.5)
+size = Vector3(5, 4.4624023, 8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WestWall" unique_id=2134011239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, 11)
+size = Vector3(5, 10, 7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WestWall" unique_id=333985589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 14.5, 7)
+size = Vector3(7, 2, 15)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WestWall" unique_id=503340510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3.5, 7)
+size = Vector3(7, 12, 15)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WestWall" unique_id=1828549023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 19, 7)
+size = Vector3(2, 7, 15)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="WestWall" unique_id=1211786254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 10, -1.5)
+size = Vector3(12, 25, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WestWall" unique_id=916653570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 10, 15.5)
+size = Vector3(12, 25, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="WestWall" unique_id=433283310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 10, 7)
+size = Vector3(2, 25, 19)
+
+[node name="SouthWestWall" type="CSGCombiner3D" parent="." unique_id=560870146]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SouthWestWall" unique_id=1473589217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -5)
+size = Vector3(5, 7, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SouthWestWall" unique_id=614775482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 13, -5)
+size = Vector3(4, 17, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SouthWestWall" unique_id=1148129005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 9.5, -3.5)
+size = Vector3(1, 24, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SouthWestWall" unique_id=294642342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 9.5, -4.5)
+size = Vector3(7, 24, 2)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=1045895958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 22, 16.5)
+use_collision = true
+size = Vector3(64, 1, 58)
