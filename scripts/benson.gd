@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var speed : float = 5.0
 @export var flight_speed : float = 10.0
-@export var friction : float = 0.9
+@export var friction : float = 0.94
 @export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
 
@@ -93,10 +93,14 @@ func _physics_process(delta: float) -> void:
 		
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
 		
+<<<<<<< Updated upstream
 		if is_on_floor():
+=======
+		if is_on_floor() and up_direction == Vector3.UP:
+>>>>>>> Stashed changes
 			velocity.x += move_direction.x * speed * delta
 			velocity.z += move_direction.z * speed * delta
-		else:
+		elif !is_on_floor():
 			velocity.x += move_direction.x * flight_speed * delta
 			velocity.z += move_direction.z * flight_speed * delta
 		
@@ -107,12 +111,13 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
 			velocity = -camera_basis.z * dash_velocity;
 	
-	if is_on_floor():
+	if is_on_floor() and up_direction == Vector3.UP:
 		velocity.x *= friction
 		velocity.z *= friction
-	else:
+	elif !is_on_floor():
 		velocity.x *= air_friction
 		velocity.z *= air_friction
+	
 	
 	move_and_slide()
 	
