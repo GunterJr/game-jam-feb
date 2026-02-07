@@ -46,8 +46,8 @@ shape = SubResource("CapsuleShape3D_81iw3")
 transform = Transform3D(-1, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1, 0.052703943, 0.09340754, -0.04397956)
 spring_length = 2.0
 script = ExtResource("2_81iw3")
-min_vert = -0.767944870877505
-max_vert = 0.26354471705114374
+min_vert = -1.2217304763960306
+max_vert = 0.5235987755982988
 
 [node name="Camera3D" type="Camera3D" parent="CameraArm" unique_id=889376277]
 transform = Transform3D(1, 8.258129e-09, 7.871712e-10, -8.258128e-09, 0.98199177, 0.18892407, 7.871641e-10, -0.18892407, 0.98199177, 0.03952786, 0.7038084, 2.1421719)
