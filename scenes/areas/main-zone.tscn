@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_et7hr"]
 [ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/player-spawn.tscn" id="2_er1ne"]
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="3_fd2pj"]
-[ext_resource type="PackedScene" uid="uid://dfkgkk2hqb77" path="res://scenes/actors/suitor-bee.tscn" id="4_y1oq8"]
-[ext_resource type="PackedScene" uid="uid://k0xd16a348p4" path="res://scenes/actors/queen-bee.tscn" id="5_tpxpp"]
+[ext_resource type="PackedScene" uid="uid://c7rwuc6ols6vy" path="res://scenes/objects/actor-spawn.tscn" id="6_1vv31"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_et7hr"]
 
@@ -257,6 +256,9 @@ radius = 3.0
 height = 12.138688
 sides = 6
 
+[node name="ActorSpawn" parent="Honeycombs" unique_id=2091310828 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8282695, 6.504081, 17.765974)
+
 [node name="SouthWall" type="CSGCombiner3D" parent="." unique_id=372922195]
 use_collision = true
 
@@ -493,14 +495,71 @@ volume_db = -10.976
 autoplay = true
 bus = &"Music"
 
-[node name="SuitorBee" parent="." unique_id=643648152 instance=ExtResource("4_y1oq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.274477, 4.3320513, 22.151123)
+[node name="ActorSpawn" parent="." unique_id=1226059241 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6023521, 6.438011, 29.477352)
 
-[node name="SuitorBee2" parent="." unique_id=1070199327 instance=ExtResource("4_y1oq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.898494, 3.9745882, 20.062164)
+[node name="ActorSpawn2" parent="." unique_id=789520890 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.591878, 4.2190075, 32.977528)
 
-[node name="SuitorBee3" parent="." unique_id=765623094 instance=ExtResource("4_y1oq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9199681, 6.2388897, 4.4713383)
+[node name="ActorSpawn3" parent="." unique_id=1704851917 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.473606, 4.109507, 21.58557)
 
-[node name="QueenBee" parent="." unique_id=945527957 instance=ExtResource("5_tpxpp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.460449, 6.754081, 17.754044)
+[node name="ActorSpawn4" parent="." unique_id=520952194 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.371791, 0.21900368, 26.094181)
+
+[node name="ActorSpawn5" parent="." unique_id=1092450377 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.979353, 5.50817, 2.6947594)
+
+[node name="ActorSpawn6" parent="." unique_id=579560650 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.047553, 3.0163383, 8.640928)
+
+[node name="ActorSpawn7" parent="." unique_id=1047690905 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0209055, 2.032689, -2.3583221)
+
+[node name="ActorSpawn8" parent="." unique_id=1992853705 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6154451, 6.0163474, 4.6566544)
+
+[node name="ActorSpawn9" parent="." unique_id=1278879836 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.513538, 17.500002, 11.380449)
+
+[node name="ActorSpawn10" parent="." unique_id=539660883 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.198307, 8.499994, 14.7971)
+
+[node name="ActorSpawn11" parent="." unique_id=1953260746 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.495693, 3.4999967, 21.420515)
+
+[node name="ActorSpawn12" parent="." unique_id=116525093 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3043861, 2.0163417, 13.66076)
+
+[node name="ActorSpawn13" parent="." unique_id=392604422 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5367947, 3.752046, 20.064262)
+
+[node name="ActorSpawn14" parent="." unique_id=339151249 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.27747, 6.016347, 12.011464)
+
+[node name="ActorSpawn15" parent="." unique_id=193513913 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8356824, 4.032681, 3.942459)
+
+[node name="ActorSpawn16" parent="." unique_id=1059181725 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.521154, 9.500006, 11.408752)
+
+[node name="ActorSpawn17" parent="." unique_id=1123564277 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.308874, 6.500004, 44.668396)
+
+[node name="ActorSpawn18" parent="." unique_id=743084242 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.96047, 6.500004, 45.62466)
+
+[node name="ActorSpawn19" parent="." unique_id=1979170451 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.457174, 15.500004, 0.14043713)
+
+[node name="ActorSpawn20" parent="." unique_id=1019474335 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.589996, 9.500006, 1.352365)
+
+[node name="ActorSpawn21" parent="." unique_id=1647172796 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.989164, -0.8904915, 34.688316)
+
+[node name="ActorSpawn22" parent="." unique_id=1105226031 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.841875, 16.500006, 43.78495)
+
+[node name="ActorSpawn23" parent="." unique_id=712426582 instance=ExtResource("6_1vv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.171366, 15.500004, 5.7361846)

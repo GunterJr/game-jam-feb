@@ -46,5 +46,20 @@ text = "No Letter!"
 
 [node name="PatienceLeft" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1886113228]
 layout_mode = 2
-text = "Queen's Patience: "
+text = "Queen's Patience: N/A"
 metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=634601461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="CenterContainer" unique_id=752152710]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "game over"
+uppercase = true

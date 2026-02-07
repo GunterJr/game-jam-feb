@@ -27,6 +27,10 @@ func add_spawn(spawnpoint : Node3D):
 	elif spawnpoint.type == spawnpoint.Type.SUITOR:
 		suitor_spawns.append(spawnpoint)
 
+func game_over():
+	gaming = false
+	GUI.flash_game_over()
+
 ## Spawns a queen and a suitor, removing the old ones. This crashes if there
 ## are no spawnpoints in the arrays!
 func new_route():
@@ -47,10 +51,14 @@ func new_route():
 		curr_suitor.queue_free()
 	curr_suitor = suitor.instantiate()
 	get_tree().root.add_child(curr_suitor)
-	curr_suitor.position = suitor_spawns.pick_random().position
+	# TODO: made this the queen array so they both can yuse it
+	curr_suitor.position = queen_spawns.pick_random().position
 	print("made suitor at ", curr_suitor.position)
 
 func _process(delta: float) -> void:
-	if not timing: return
+	if not timing or not gaming: return
 	patience -= delta
+	if patience <= 0:
+		patience = 0
+		game_over()
 	GUI.update_patience(patience)

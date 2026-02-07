@@ -40,6 +40,7 @@ func _ready() -> void:
 	# TODO: this is not very smart... we wait to make sure all the spawnpoints
 	# for actors have initialized
 	await get_tree().create_timer(5).timeout
+	GameManager.gaming = true
 	GameManager.new_route()
 
 func _physics_process(delta: float) -> void:

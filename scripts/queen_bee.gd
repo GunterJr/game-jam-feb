@@ -3,6 +3,8 @@ extends StaticBody3D
 @onready var voice: Label3D = $Voice
 @onready var deliver_trigger: Area3D = $DeliverTrigger
 @onready var talker: AudioStreamPlayer3D = $Talker
+
+@export var patience_gained : float = 10.0
 ## TODO: These are hardcoded in for now, though if we have time we ought to
 ##
 var comments : Array[String] = [
@@ -35,6 +37,6 @@ func on_player_enter(body: Node3D) -> void:
 	# TODO: scrolling text
 	speak(phrase)
 	GUI.has_letter = false
-	GameManager.patience += 20.0
+	GameManager.patience += patience_gained
 	await get_tree().create_timer(2).timeout
 	GameManager.new_route()

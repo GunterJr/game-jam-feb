@@ -4,6 +4,7 @@ extends Control
 @onready var letter_status: Label = $MarginContainer/VBoxContainer/LetterStatus
 @onready var flight_bar: ProgressBar = $MarginContainer/VBoxContainer/FlightBar
 @onready var patience_left: Label = $MarginContainer/VBoxContainer/PatienceLeft
+@onready var game_over: Label = $CenterContainer/GameOver
 
 ## Really, this should not be stored in a GUI singleton, it probably should be 
 ## some other autoload for game state. Oh well.
@@ -30,3 +31,10 @@ func letter_label(letter : bool) -> void:
 	else:
 		letter_status.text = "No Letter"
 		letter_status.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
+
+func flash_game_over():
+	for i : int in 5:
+		await get_tree().create_timer(0.5).timeout
+		game_over.visible = true
+		await get_tree().create_timer(0.5).timeout
+		game_over.visible = false
