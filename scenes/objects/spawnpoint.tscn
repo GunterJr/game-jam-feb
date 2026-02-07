@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c6dlgb1usn7cx"]
+
+[sub_resource type="TextMesh" id="TextMesh_iog1t"]
+text = "wgat spawn"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vy5y"]
+albedo_color = Color(0, 0, 1, 1)
+
+[node name="Spawnpoint" type="Node3D" unique_id=71272684]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=980550740]
+mesh = SubResource("TextMesh_iog1t")
+surface_material_override/0 = SubResource("StandardMaterial3D_5vy5y")

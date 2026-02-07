@@ -15,16 +15,26 @@ var flying : bool = false
 var current_flight_time: float = 0
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
+# Optional
+@export var spawnpoint : Node3D
+
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
+
 
 ## Emits each frame the player is flying.
 ## TODO: retarded
 signal flew(new_time)
 
+## Set Benson's position to the listed spawnpoint.
+func respawn() -> void:
+	if spawnpoint:
+		position = spawnpoint.position
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	respawn()
 
 func _physics_process(delta: float) -> void:
 	
@@ -33,6 +43,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("reset"):
+		respawn()
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
