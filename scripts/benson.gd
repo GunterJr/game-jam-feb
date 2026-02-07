@@ -6,9 +6,9 @@ extends CharacterBody3D
 @export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
 
-@export var flight_velocity: float = 10
+@export var flight_velocity: float = 0.2
 @export var flight_time: float = 3.0
-@export var max_flight_speed: float = 40
+@export var max_flight_speed: float = 4
 
 @export var dash_velocity: float = 10
 var flying : bool = false
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 			buzzer.play()
 		if(velocity.y < 0):
 			velocity.y = 0
-		velocity.y += flight_velocity * delta
+		velocity.y += flight_velocity
 		current_flight_time += delta
 		flew.emit(current_flight_time)
 
@@ -93,11 +93,7 @@ func _physics_process(delta: float) -> void:
 		
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
 		
-<<<<<<< Updated upstream
-		if is_on_floor():
-=======
 		if is_on_floor() and up_direction == Vector3.UP:
->>>>>>> Stashed changes
 			velocity.x += move_direction.x * speed * delta
 			velocity.z += move_direction.z * speed * delta
 		elif !is_on_floor():
