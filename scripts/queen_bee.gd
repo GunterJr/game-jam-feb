@@ -4,7 +4,7 @@ extends StaticBody3D
 @onready var deliver_trigger: Area3D = $DeliverTrigger
 @onready var talker: AudioStreamPlayer3D = $Talker
 
-@export var patience_gained : float = 10.0
+@export var patience_gained : float = 20.0
 ## TODO: These are hardcoded in for now, though if we have time we ought to
 ##
 var comments : Array[String] = [

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_et7hr"]
 [ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/player-spawn.tscn" id="2_er1ne"]
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="3_fd2pj"]
+[ext_resource type="PackedScene" uid="uid://bdl5r6jfrxnn4" path="res://scenes/misc/killer.tscn" id="5_tpxpp"]
 [ext_resource type="PackedScene" uid="uid://c7rwuc6ols6vy" path="res://scenes/objects/actor-spawn.tscn" id="6_1vv31"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_et7hr"]
@@ -678,3 +679,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.841875, 16.500006, 43.7849
 
 [node name="ActorSpawn23" parent="." unique_id=712426582 instance=ExtResource("6_1vv31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.171366, 15.500004, 5.7361846)
+
+[node name="Killer" parent="." unique_id=785259735 instance=ExtResource("5_tpxpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4779052, 0)

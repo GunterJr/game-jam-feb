@@ -27,11 +27,22 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
 @onready var dash_sound: AudioStreamPlayer3D = $DashSound
+@onready var death_sound: AudioStreamPlayer3D = $DeathSound
 
 ## Set Benson's position to the listed spawnpoint.
 func respawn() -> void:
 	if spawnpoint:
 		position = spawnpoint.position
+
+func die():
+	death_sound.play()
+	GameManager.gaming = false
+	GUI.flash_game_over()
+	visible = false
+	speed = 0
+	jump_velocity = 0
+	dash_velocity = 0
+	
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
