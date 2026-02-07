@@ -6,9 +6,9 @@ extends CharacterBody3D
 @export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
 
-@export var flight_velocity: float = 10
-@export var flight_time: float = 3.0
-@export var max_flight_speed: float = 40
+@export var flight_velocity: float = 0.5
+@export var flight_time: float = 0.8
+@export var max_flight_speed: float = 4
 
 @export var dash_velocity: float = 10
 var flying : bool = false
@@ -25,15 +25,23 @@ signal flew(new_time)
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	up_direction = Vector3.UP
 
 func _physics_process(delta: float) -> void:
 	
 	velocity = current_velocity
 	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
+	if not is_on_floor() and !is_on_wall_only():
+		var gravity_strength := get_gravity().length()
+		velocity += -up_direction * gravity_strength * delta
+	
+	# grabbing wall
+	if is_on_wall_only():
+		var wall_normal = get_wall_normal()
+		velocity = Vector3(0, 0, 0)
+		up_direction = wall_normal
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -41,7 +49,8 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += jump_velocity
+		velocity += up_direction * jump_velocity
+		up_direction = Vector3.UP
 		flying = false
 	
 	# Handle flight.
@@ -56,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			buzzer.play()
 		if(velocity.y < 0):
 			velocity.y = 0
-		velocity.y += flight_velocity * delta
+		velocity.y += flight_velocity
 		current_flight_time += delta
 		flew.emit(current_flight_time)
 
@@ -80,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
 		
-		if is_on_floor():
+		if is_on_floor() or is_on_wall_only():
 			velocity.x += move_direction.x * speed * delta
 			velocity.z += move_direction.z * speed * delta
 		else:
@@ -102,6 +111,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z *= air_friction
 	
 	move_and_slide()
+	
+	print(up_direction)
 	
 	current_velocity = velocity
 
