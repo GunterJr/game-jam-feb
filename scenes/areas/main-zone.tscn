@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/player-spawn.tscn" id="2_er1ne"]
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="3_fd2pj"]
 [ext_resource type="PackedScene" uid="uid://dfkgkk2hqb77" path="res://scenes/actors/suitor-bee.tscn" id="4_y1oq8"]
+[ext_resource type="PackedScene" uid="uid://k0xd16a348p4" path="res://scenes/actors/queen-bee.tscn" id="5_tpxpp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_et7hr"]
 
@@ -420,3 +421,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.898494, 3.9745882, 20.06216
 
 [node name="SuitorBee3" parent="." unique_id=765623094 instance=ExtResource("4_y1oq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9199681, 6.2388897, 4.4713383)
+
+[node name="QueenBee" parent="." unique_id=945527957 instance=ExtResource("5_tpxpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.460449, 6.754081, 17.754044)

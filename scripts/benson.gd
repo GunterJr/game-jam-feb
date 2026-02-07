@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		body.global_rotation.y = lerp_angle(target_angle, body.global_rotation.y, 0.6)
 		
 		#handle dash
-		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
+		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time + 0.4 < flight_time:
 			velocity = -camera_basis.z * dash_velocity;
 			dash_sound.play()
 			current_flight_time += 0.4
