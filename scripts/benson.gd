@@ -34,8 +34,12 @@ func respawn() -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	respawn()
 	up_direction = Vector3.UP
+	respawn()
+	# TODO: this is not very smart... we wait to make sure all the spawnpoints
+	# for actors have initialized
+	await get_tree().create_timer(5).timeout
+	GameManager.new_route()
 
 func _physics_process(delta: float) -> void:
 	

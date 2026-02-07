@@ -3,6 +3,7 @@ extends Control
 @onready var flight_remaining: Label = $MarginContainer/VBoxContainer/FlightRemaining
 @onready var letter_status: Label = $MarginContainer/VBoxContainer/LetterStatus
 @onready var flight_bar: ProgressBar = $MarginContainer/VBoxContainer/FlightBar
+@onready var patience_left: Label = $MarginContainer/VBoxContainer/PatienceLeft
 
 ## Really, this should not be stored in a GUI singleton, it probably should be 
 ## some other autoload for game state. Oh well.
@@ -10,6 +11,11 @@ var has_letter : bool = false:
 	set(input):
 		has_letter = input
 		letter_label(input)
+
+func update_patience(new: float):
+	new = roundf(new)
+	var out : String = "Queen's Patience: " + str(new)
+	patience_left.text = out
 
 func update_flight(new: float):
 	new = snappedf(new, 0.1)

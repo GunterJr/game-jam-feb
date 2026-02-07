@@ -36,7 +36,15 @@ max_value = 0.8
 value = 0.8
 show_percentage = false
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=883932475]
+layout_mode = 2
+
 [node name="LetterStatus" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1735477788]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "No Letter!"
+
+[node name="PatienceLeft" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1886113228]
+layout_mode = 2
+text = "Queen's Patience: "
+metadata/_edit_use_anchors_ = true

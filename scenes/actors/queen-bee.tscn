@@ -41,6 +41,7 @@ stream_5/stream = ExtResource("7_wglvj")
 script = ExtResource("1_lawqd")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=326506390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
 mesh = SubResource("SphereMesh_bon43")
 surface_material_override/0 = SubResource("StandardMaterial3D_lawqd")
 
@@ -50,10 +51,11 @@ mesh = SubResource("SphereMesh_834ml")
 surface_material_override/0 = SubResource("StandardMaterial3D_1fefu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=794506715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051319823, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34998798, 0)
 shape = SubResource("SphereShape3D_6kwil")
 
 [node name="DeliverTrigger" type="Area3D" parent="." unique_id=1752955624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeliverTrigger" unique_id=729930832]
@@ -61,12 +63,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19927773, 0)
 shape = SubResource("BoxShape3D_cbcck")
 
 [node name="Voice" type="Label3D" parent="." unique_id=566326706]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5133915, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81205964, 0)
 pixel_size = 0.003
 billboard = 1
 text = "the QUEEN"
 
 [node name="Talker" type="AudioStreamPlayer3D" parent="." unique_id=112442637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
 stream = SubResource("AudioStreamRandomizer_2habd")
 pitch_scale = 1.2
 bus = &"Effects"

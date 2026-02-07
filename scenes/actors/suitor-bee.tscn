@@ -88,15 +88,17 @@ mesh = SubResource("SphereMesh_p8kpe")
 surface_material_override/0 = SubResource("StandardMaterial3D_1tyor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2059620147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24356276, 0)
 shape = SubResource("CapsuleShape3D_p8kpe")
 
 [node name="Voice" type="Label3D" parent="." unique_id=165716873]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36995763, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6135204, 0)
 pixel_size = 0.003
 billboard = 1
 text = "My name is awesome guy"
 
 [node name="CollectTrigger" type="Area3D" parent="." unique_id=1762402684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24356276, 0)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollectTrigger" unique_id=1332121387]
@@ -111,6 +113,7 @@ autoplay = &"hover"
 wait_time = 5.0
 
 [node name="Talker" type="AudioStreamPlayer3D" parent="." unique_id=631773399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24356276, 0)
 stream = SubResource("AudioStreamRandomizer_w738j")
 pitch_scale = 1.5
 bus = &"Effects"

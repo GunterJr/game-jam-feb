@@ -32,7 +32,9 @@ func on_player_enter(body: Node3D) -> void:
 		return
 	print("Letter sent!")
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
-	speak(phrase)
 	# TODO: scrolling text
+	speak(phrase)
 	GUI.has_letter = false
-	
+	GameManager.patience += 20.0
+	await get_tree().create_timer(2).timeout
+	GameManager.new_route()
