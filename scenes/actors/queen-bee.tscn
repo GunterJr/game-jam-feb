@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b8e0hc18f7r1j" path="res://audio/fx/talk/talk4.wav" id="5_5bm6n"]
 [ext_resource type="AudioStream" uid="uid://jba1maav0t7c" path="res://audio/fx/talk/talk5.wav" id="6_4eh2x"]
 [ext_resource type="AudioStream" uid="uid://c8n7xdnx352kj" path="res://audio/fx/talk/talk6.wav" id="7_wglvj"]
+[ext_resource type="Texture2D" uid="uid://cd38enda8yiy0" path="res://textures/flag.png" id="8_62n52"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bon43"]
 radius = 0.3
@@ -73,5 +74,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
 stream = SubResource("AudioStreamRandomizer_2habd")
 pitch_scale = 1.2
 bus = &"Effects"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=669213345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7126393, 0)
+pixel_size = 0.05
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("8_62n52")
 
 [connection signal="body_entered" from="DeliverTrigger" to="." method="on_player_enter"]

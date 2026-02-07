@@ -12,13 +12,13 @@ var timing : bool = false
 		new_route()
 
 var curr_queen : StaticBody3D
-var curr_suitor : StaticBody3D
+var curr_suitors : Array[StaticBody3D]
 
-@export var queen : PackedScene
-@export var suitor : PackedScene
+@export var queen_template : PackedScene
+@export var suitor_template : PackedScene
 
 var queen_spawns : Array[Node3D]
-var suitor_spawns : Array[Node3D]
+var suitor_spawns : Array[Node3D] # not used
 
 ## Adds given spawnpoint Node3D into pool.
 func add_spawn(spawnpoint : Node3D):
@@ -31,29 +31,44 @@ func game_over():
 	gaming = false
 	GUI.flash_game_over()
 
-## Spawns a queen and a suitor, removing the old ones. This crashes if there
-## are no spawnpoints in the arrays!
+## Spawns a queen and a few suitors, removing the old ones. This crashes if 
+## there are no spawnpoints in the arrays!
 func new_route():
 	if not gaming: return
 	timing = true
 	print("generating new route")
+	for spawn in queen_spawns:
+		spawn.occupied = false
 	# TODO: these queue_frees() should actually be calls to something like
 	# fly_away() on the actors.
 	if curr_queen:
 		curr_queen.queue_free()
-	curr_queen = queen.instantiate()
+	curr_queen = queen_template.instantiate()
 	get_tree().root.add_child(curr_queen)
 	# TODO: do not include last spawn in the picking
-	curr_queen.position = queen_spawns.pick_random().position
+	var fresh_spawn = queen_spawns.pick_random()
+	while fresh_spawn.occupied:
+		print("occupied, rerolling")
+		fresh_spawn = queen_spawns.pick_random()
+	fresh_spawn.occupied = true
+	curr_queen.position = fresh_spawn.position
 	print("made queen at ", curr_queen.position, curr_queen.get_parent())
 	
-	if curr_suitor:
-		curr_suitor.queue_free()
-	curr_suitor = suitor.instantiate()
-	get_tree().root.add_child(curr_suitor)
-	# TODO: made this the queen array so they both can yuse it
-	curr_suitor.position = queen_spawns.pick_random().position
-	print("made suitor at ", curr_suitor.position)
+	for suitor in curr_suitors:
+		suitor.queue_free()
+	curr_suitors.clear()
+	for i in 3:
+		var new : StaticBody3D = suitor_template.instantiate()
+		get_tree().root.add_child(new)
+		curr_suitors.append(new)
+		fresh_spawn = queen_spawns.pick_random()
+		while fresh_spawn.occupied:
+			print("occupied, rerolling")
+			fresh_spawn = queen_spawns.pick_random()
+		fresh_spawn.occupied = true
+		# TODO: made this the queen array so they both can yuse it
+		new.position = fresh_spawn.position
+		print("made suitor at ", new.position)
 
 func _process(delta: float) -> void:
 	if not timing or not gaming: return

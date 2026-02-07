@@ -6,5 +6,5 @@
 
 [node name="GameManager" type="Node" unique_id=1184582660]
 script = ExtResource("1_i7op2")
-queen = ExtResource("2_4v6at")
-suitor = ExtResource("3_tilg6")
+queen_template = ExtResource("2_4v6at")
+suitor_template = ExtResource("3_tilg6")
