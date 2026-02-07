@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
 [ext_resource type="Script" path="res://scripts/camera_arm.gd" id="2_81iw3"]
 [ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
+[ext_resource type="AudioStream" uid="uid://dby8oy8c8i7xv" path="res://audio/fx/dash.wav" id="4_lu2wp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4qym"]
 albedo_color = Color(1, 1, 0, 1)
@@ -55,3 +56,8 @@ fov = 69.0
 
 [node name="Buzzer" type="AudioStreamPlayer3D" parent="." unique_id=1896265478]
 stream = ExtResource("3_8dec6")
+bus = &"Effects"
+
+[node name="DashSound" type="AudioStreamPlayer3D" parent="." unique_id=1241216160]
+stream = ExtResource("4_lu2wp")
+bus = &"Effects"

@@ -2,6 +2,7 @@ extends StaticBody3D
 
 @onready var voice: Label3D = $Voice
 @onready var collect_trigger: Area3D = $CollectTrigger
+@onready var talker: AudioStreamPlayer3D = $Talker
 ## TODO: These are hardcoded in for now, though if we have time we ought to
 ##
 var comments : Array[String] = [
@@ -18,6 +19,10 @@ func _ready() -> void:
 ## Sets the Voice label to the phrase, then clears it after 5s.
 func speak(phrase : String):
 	voice.text = phrase
+	# Play cute noises
+	for i : int in 5:
+		talker.play()
+		await talker.finished
 	await get_tree().create_timer(5).timeout
 	voice.text = ""
 

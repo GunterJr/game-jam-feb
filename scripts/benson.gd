@@ -12,7 +12,11 @@ extends CharacterBody3D
 
 @export var dash_velocity: float = 10
 var flying : bool = false
-var current_flight_time: float = 0
+var current_flight_time: float = 0:
+	set(val):
+		current_flight_time = val
+		GUI.update_flight(current_flight_time)
+		
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
 # Optional
@@ -21,6 +25,7 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
+@onready var dash_sound: AudioStreamPlayer3D = $DashSound
 
 ## Set Benson's position to the listed spawnpoint.
 func respawn() -> void:
@@ -76,7 +81,6 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0
 		velocity.y += flight_velocity
 		current_flight_time += delta
-		GUI.update_flight(current_flight_time)
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_vector : Vector2 = Vector2(
@@ -111,6 +115,9 @@ func _physics_process(delta: float) -> void:
 		#handle dash
 		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
 			velocity = -camera_basis.z * dash_velocity;
+			dash_sound.play()
+			current_flight_time += 0.4
+			
 	
 	if is_on_floor() and up_direction == Vector3.UP:
 		velocity.x *= friction

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_0kmkr"]
 [ext_resource type="PackedScene" uid="uid://d3w30uoyca4fd" path="res://scenes/objects/honey-ball.tscn" id="3_18mwh"]
-[ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/spawnpoint.tscn" id="3_64h5n"]
+[ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/player-spawn.tscn" id="3_64h5n"]
 [ext_resource type="PackedScene" uid="uid://dfkgkk2hqb77" path="res://scenes/actors/suitor-bee.tscn" id="5_5h40q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hakr"]

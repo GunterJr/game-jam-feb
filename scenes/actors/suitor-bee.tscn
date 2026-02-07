@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://dfkgkk2hqb77"]
 
 [ext_resource type="Script" uid="uid://l1ujqc4mr02m" path="res://scripts/suitor_bee.gd" id="1_d226x"]
+[ext_resource type="AudioStream" uid="uid://cy36iux8n4eh4" path="res://audio/fx/talk/talk1.wav" id="2_do4ya"]
+[ext_resource type="AudioStream" uid="uid://ba003dit61l1d" path="res://audio/fx/talk/talk2.wav" id="3_xqqg0"]
+[ext_resource type="AudioStream" uid="uid://dlob0vx4165xj" path="res://audio/fx/talk/talk3.wav" id="4_y3u13"]
+[ext_resource type="AudioStream" uid="uid://b8e0hc18f7r1j" path="res://audio/fx/talk/talk4.wav" id="5_38twn"]
+[ext_resource type="AudioStream" uid="uid://jba1maav0t7c" path="res://audio/fx/talk/talk5.wav" id="6_73qf0"]
+[ext_resource type="AudioStream" uid="uid://c8n7xdnx352kj" path="res://audio/fx/talk/talk6.wav" id="7_jd8ej"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_p8kpe"]
 radius = 0.1
@@ -60,6 +66,15 @@ _data = {
 &"hover": SubResource("Animation_1tyor")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w738j"]
+streams_count = 6
+stream_0/stream = ExtResource("2_do4ya")
+stream_1/stream = ExtResource("3_xqqg0")
+stream_2/stream = ExtResource("4_y3u13")
+stream_3/stream = ExtResource("5_38twn")
+stream_4/stream = ExtResource("6_73qf0")
+stream_5/stream = ExtResource("7_jd8ej")
+
 [node name="SuitorBee" type="StaticBody3D" unique_id=643648152]
 script = ExtResource("1_d226x")
 
@@ -94,5 +109,10 @@ autoplay = &"hover"
 
 [node name="VoiceTimeout" type="Timer" parent="." unique_id=1638342715]
 wait_time = 5.0
+
+[node name="Talker" type="AudioStreamPlayer3D" parent="." unique_id=631773399]
+stream = SubResource("AudioStreamRandomizer_w738j")
+pitch_scale = 1.5
+bus = &"Effects"
 
 [connection signal="body_entered" from="CollectTrigger" to="." method="on_player_enter"]

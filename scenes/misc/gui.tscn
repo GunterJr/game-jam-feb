@@ -29,6 +29,13 @@ layout_mode = 2
 text = "FLIGHT"
 metadata/_edit_use_anchors_ = true
 
+[node name="FlightBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1045690890]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+max_value = 0.8
+value = 0.8
+show_percentage = false
+
 [node name="LetterStatus" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1735477788]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
