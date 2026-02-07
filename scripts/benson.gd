@@ -1,11 +1,19 @@
 extends CharacterBody3D
 
-@export var speed : float = 2.0
+@export var speed : float = 5.0
+@export var flight_speed : float = 10.0
+@export var friction : float = 0.9
+@export var air_friction : float = 0.97
 @export var jump_velocity: float = 4.5
-@export var flight_velocity: float = 1
-@export var flight_time: float = 1.0
+
+@export var flight_velocity: float = 10
+@export var flight_time: float = 3.0
+@export var max_flight_speed: float = 40
+
+@export var dash_velocity: float = 10
 var flying : bool = false
 var current_flight_time: float = 0
+var current_velocity : Vector3 = Vector3(0, 0, 0)
 
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
@@ -20,6 +28,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	velocity = current_velocity
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -31,7 +41,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		velocity.y += jump_velocity
 		flying = false
 	
 	# Handle flight.
@@ -41,10 +51,12 @@ func _physics_process(delta: float) -> void:
 		flying = false
 	if Input.is_action_just_released("jump"):
 		flying = true
-	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying:
+	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
 		if not buzzer.playing:
 			buzzer.play()
-		velocity.y = flight_velocity
+		if(velocity.y < 0):
+			velocity.y = 0
+		velocity.y += flight_velocity * delta
 		current_flight_time += delta
 		flew.emit(current_flight_time)
 
@@ -67,16 +79,31 @@ func _physics_process(delta: float) -> void:
 		right = right.normalized()
 		
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
-		velocity.x = move_direction.x * speed
-		velocity.z = move_direction.z * speed
+		
+		if is_on_floor():
+			velocity.x += move_direction.x * speed * delta
+			velocity.z += move_direction.z * speed * delta
+		else:
+			velocity.x += move_direction.x * flight_speed * delta
+			velocity.z += move_direction.z * flight_speed * delta
 		
 		var target_angle := Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
 		body.global_rotation.y = target_angle
-	else:
-		velocity.x = 0
-		velocity.z = 0
 		
+		#handle dash
+		if Input.is_action_just_pressed("dash") and !is_on_floor() and current_flight_time < flight_time:
+			velocity = -camera_basis.z * dash_velocity;
+	
+	if is_on_floor():
+		velocity.x *= friction
+		velocity.z *= friction
+	else:
+		velocity.x *= air_friction
+		velocity.z *= air_friction
+	
 	move_and_slide()
+	
+	current_velocity = velocity
 
 ## "Refreshes" the players flight time. This method could techincally be placed
 ## in any object that flys.
