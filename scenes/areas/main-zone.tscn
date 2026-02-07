@@ -12,7 +12,38 @@ sky_material = SubResource("ProceduralSkyMaterial_et7hr")
 
 [sub_resource type="Environment" id="Environment_er1ne"]
 background_mode = 2
+background_energy_multiplier = 2.0
 sky = SubResource("Sky_et7hr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2etlh"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.79, 0.59250003, 0, 1)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1oq8"]
+shading_mode = 0
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.52, 0.27733335, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpxpp"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.813, 0.33999997, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vv31"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.75, 0, 1)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysv1u"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.84000003, 0.36, 1)
 
 [node name="MainZone" type="Node3D" unique_id=1094626090]
 
@@ -30,11 +61,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1136475, 7.605, -7.039551)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 22, 18)
 use_collision = true
 size = Vector3(73, 1, 61)
+material = SubResource("StandardMaterial3D_2etlh")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=669942819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -3, 18)
 use_collision = true
 size = Vector3(73, 3, 61)
+material = SubResource("StandardMaterial3D_y1oq8")
 
 [node name="Honeycombs" type="CSGCombiner3D" parent="." unique_id=1856012402]
 use_collision = true
@@ -45,6 +78,7 @@ use_collision = true
 radius = 2.0
 height = 2.0653687
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb2" type="CSGCylinder3D" parent="Honeycombs" unique_id=747024172]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.91177, 0)
@@ -52,6 +86,7 @@ use_collision = true
 radius = 2.0
 height = 17.758171
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb3" type="CSGCylinder3D" parent="Honeycombs" unique_id=1926528514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.016342163, -2)
@@ -59,6 +94,7 @@ use_collision = true
 radius = 2.0
 height = 4.0326843
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb4" type="CSGCylinder3D" parent="Honeycombs" unique_id=1272789512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.008171, 5)
@@ -66,6 +102,7 @@ use_collision = true
 radius = 2.0
 height = 8.016342
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb5" type="CSGCylinder3D" parent="Honeycombs" unique_id=1316330269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5081711, 9)
@@ -73,6 +110,7 @@ use_collision = true
 radius = 2.0
 height = 5.016342
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb6" type="CSGCylinder3D" parent="Honeycombs" unique_id=1062319150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 17.012257, -2)
@@ -80,6 +118,7 @@ use_collision = true
 radius = 2.0
 height = 10.008171
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb7" type="CSGCylinder3D" parent="Honeycombs" unique_id=1303704273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 17.506128, 5)
@@ -87,6 +126,7 @@ use_collision = true
 radius = 2.0
 height = 9.004086
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb8" type="CSGCylinder3D" parent="Honeycombs" unique_id=1539002404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.0163422, 4)
@@ -94,6 +134,7 @@ use_collision = true
 radius = 2.0
 height = 6.0326843
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb9" type="CSGCylinder3D" parent="Honeycombs" unique_id=2045413477]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 16.388279, 4)
@@ -101,6 +142,7 @@ use_collision = true
 radius = 2.0
 height = 11.752043
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb10" type="CSGCylinder3D" parent="Honeycombs" unique_id=282751074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008171082, 14)
@@ -108,6 +150,7 @@ use_collision = true
 radius = 2.0
 height = 4.016342
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb11" type="CSGCylinder3D" parent="Honeycombs" unique_id=557228776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 14.506128, 14)
@@ -115,6 +158,7 @@ use_collision = true
 radius = 2.0
 height = 15.004086
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb12" type="CSGCylinder3D" parent="Honeycombs" unique_id=905200456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.2520428, 18)
@@ -122,6 +166,7 @@ use_collision = true
 radius = 2.0
 height = 8.504086
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb13" type="CSGCylinder3D" parent="Honeycombs" unique_id=1114242431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 17.73629, 18)
@@ -129,6 +174,7 @@ use_collision = true
 radius = 2.0
 height = 9.031506
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb14" type="CSGCylinder3D" parent="Honeycombs" unique_id=1915838295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2.008171, 12)
@@ -136,6 +182,7 @@ use_collision = true
 radius = 2.0
 height = 8.016342
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb15" type="CSGCylinder3D" parent="Honeycombs" unique_id=930909715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 16.757149, 12)
@@ -143,6 +190,7 @@ use_collision = true
 radius = 2.0
 height = 10.502043
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb16" type="CSGCylinder3D" parent="Honeycombs" unique_id=2020023232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.8760214, 20)
@@ -150,6 +198,7 @@ use_collision = true
 radius = 2.0
 height = 5.752043
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb17" type="CSGCylinder3D" parent="Honeycombs" unique_id=2135026649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 17.012257, -2)
@@ -157,6 +206,7 @@ use_collision = true
 radius = 2.0
 height = 10.008171
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb18" type="CSGCylinder3D" parent="Honeycombs" unique_id=1068687716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.8760214, 20)
@@ -164,6 +214,7 @@ use_collision = true
 radius = 2.0
 height = 5.752043
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb19" type="CSGCylinder3D" parent="Honeycombs" unique_id=1124120022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 15.907017, 20)
@@ -171,6 +222,7 @@ use_collision = true
 radius = 2.0
 height = 11.938011
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb20" type="CSGCylinder3D" parent="Honeycombs" unique_id=1436497964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.2190056, 29)
@@ -178,6 +230,7 @@ use_collision = true
 radius = 4.0
 height = 8.438011
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb21" type="CSGCylinder3D" parent="Honeycombs" unique_id=151925979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 18.164253, 29)
@@ -185,6 +238,7 @@ use_collision = true
 radius = 4.0
 height = 8.109503
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb22" type="CSGCylinder3D" parent="Honeycombs" unique_id=1921174584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -0.8904972, 26)
@@ -192,6 +246,7 @@ use_collision = true
 radius = 3.0
 height = 2.2190056
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb23" type="CSGCylinder3D" parent="Honeycombs" unique_id=491942694]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 16.42931, 26)
@@ -199,6 +254,7 @@ use_collision = true
 radius = 3.0
 height = 11.8681965
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb24" type="CSGCylinder3D" parent="Honeycombs" unique_id=1812242687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.417969, 1.0547514, 21.960693)
@@ -206,6 +262,7 @@ use_collision = true
 radius = 2.0
 height = 6.109503
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb25" type="CSGCylinder3D" parent="Honeycombs" unique_id=1567127881]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.417969, 16.145533, 21.960693)
@@ -213,6 +270,7 @@ use_collision = true
 radius = 2.0
 height = 10.763688
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb26" type="CSGCylinder3D" parent="Honeycombs" unique_id=1768735010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.7540855, 3)
@@ -220,6 +278,7 @@ use_collision = true
 radius = 2.0
 height = 7.508171
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb27" type="CSGCylinder3D" parent="Honeycombs" unique_id=2042702697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 17.424171, 3)
@@ -227,6 +286,7 @@ use_collision = true
 radius = 2.0
 height = 10.094261
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb28" type="CSGCylinder3D" parent="Honeycombs" unique_id=1965577357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.1095028, 33)
@@ -234,6 +294,7 @@ use_collision = true
 radius = 3.0
 height = 6.2190056
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb29" type="CSGCylinder3D" parent="Honeycombs" unique_id=914545673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 18.664253, 33)
@@ -241,6 +302,7 @@ use_collision = true
 radius = 3.0
 height = 7.109503
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb30" type="CSGCylinder3D" parent="Honeycombs" unique_id=430406987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.4452486, 35)
@@ -248,6 +310,7 @@ use_collision = true
 radius = 3.0
 height = 1.1095028
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="Honeycomb31" type="CSGCylinder3D" parent="Honeycombs" unique_id=463864797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 16.208033, 35)
@@ -255,6 +318,7 @@ use_collision = true
 radius = 3.0
 height = 12.138688
 sides = 6
+material = SubResource("StandardMaterial3D_tpxpp")
 
 [node name="ActorSpawn" parent="Honeycombs" unique_id=2091310828 instance=ExtResource("6_1vv31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8282695, 6.504081, 17.765974)
@@ -266,56 +330,67 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -5)
 use_collision = true
 size = Vector3(13, 6, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="SouthWall" unique_id=1075788925]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6.5)
 use_collision = true
 size = Vector3(5, 1, 4)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="SouthWall" unique_id=19450981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 8, -6.5)
 use_collision = true
 size = Vector3(1, 7, 4)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="SouthWall" unique_id=1672130613]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 5.5, -6.5)
 use_collision = true
 size = Vector3(4, 4, 4)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="SouthWall" unique_id=1594892606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 8, -10.5)
 use_collision = true
 size = Vector3(10, 7, 4)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="SouthWall" unique_id=2059100916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 7.5, -8.5)
 use_collision = true
 size = Vector3(4, 8, 8)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="SouthWall" unique_id=1516606007]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 17, -12)
 use_collision = true
 size = Vector3(10, 11, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="SouthWall" unique_id=1804057025]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -8.633975, 17, -11.5)
 use_collision = true
 size = Vector3(4, 11, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="SouthWall" unique_id=1092824886]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 2.366025, 17, -11.5)
 use_collision = true
 size = Vector3(4, 11, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="SouthWall" unique_id=776829727]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 17, -7.5)
 use_collision = true
 size = Vector3(7, 11, 1)
+material = SubResource("StandardMaterial3D_ysv1u")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="SouthWall" unique_id=1115489772]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, 17, -7.5)
 use_collision = true
 size = Vector3(7, 11, 1)
+material = SubResource("StandardMaterial3D_ysv1u")
 
 [node name="WestWall" type="CSGCombiner3D" parent="." unique_id=84669399]
 use_collision = true
@@ -323,34 +398,42 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=891903673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.26879883, 3.5)
 size = Vector3(5, 4.4624023, 8)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="WestWall" unique_id=2134011239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 2.5, 11)
 size = Vector3(5, 10, 7)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="WestWall" unique_id=333985589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 14.5, 7)
 size = Vector3(7, 2, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="WestWall" unique_id=503340510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3.5, 7)
 size = Vector3(7, 12, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="WestWall" unique_id=1828549023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 19, 7)
 size = Vector3(2, 7, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="WestWall" unique_id=1211786254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 10, -1.5)
 size = Vector3(12, 25, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="WestWall" unique_id=916653570]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 10, 15.5)
 size = Vector3(12, 25, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="WestWall" unique_id=433283310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 10, 7)
 size = Vector3(2, 25, 19)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="SouthWestWall" type="CSGCombiner3D" parent="." unique_id=560870146]
 use_collision = true
@@ -358,18 +441,22 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="SouthWestWall" unique_id=1473589217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -5)
 size = Vector3(5, 7, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="SouthWestWall" unique_id=614775482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 13, -5)
 size = Vector3(4, 17, 1)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="SouthWestWall" unique_id=1148129005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 9.5, -3.5)
 size = Vector3(1, 24, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="SouthWestWall" unique_id=294642342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 9.5, -4.5)
 size = Vector3(7, 24, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="EastWall" type="CSGCombiner3D" parent="." unique_id=1712275340]
 use_collision = true
@@ -377,70 +464,87 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=2065376726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 2.5, 5)
 size = Vector3(13, 10, 11)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="EastWall" unique_id=1874651984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 0.5, 18)
 size = Vector3(8, 6, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="EastWall" unique_id=68985190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 10, 11.5)
 size = Vector3(2, 25, 10)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="EastWall" unique_id=869022971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 16.5, 16)
 size = Vector3(8, 2, 19)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="EastWall" unique_id=1911029602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 14, 26.5)
 size = Vector3(10, 7, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="EastWall" unique_id=1367156630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 11.5, 21)
 size = Vector3(8, 2, 9)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="EastWall" unique_id=1711689014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5, 20, 22.5)
 size = Vector3(10, 5, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="EastWall" unique_id=15481185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 14, 21)
 size = Vector3(2, 7, 9)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="EastWall" unique_id=2011836226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, 4, 15)
 size = Vector3(6, 9, 9)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="EastWall" unique_id=691756709]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5, 11, 18)
 size = Vector3(2, 23, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="EastWall" unique_id=410038413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 11, 9.5)
 size = Vector3(1, 23, 20)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="EastWall" unique_id=1888607376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 11, 20.5)
 size = Vector3(7, 23, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="EastWall" unique_id=786348034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 11, -2)
 size = Vector3(21, 23, 3)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="EastWall" unique_id=1982588586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 10, 3)
 size = Vector3(2, 11, 7)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="EastWall" unique_id=1062429389]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -40.5, 11, 0.13397461)
 size = Vector3(1, 23, 5)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="EastWall" unique_id=1463986528]
 transform = Transform3D(0.8647923, 0, 0.5021297, 0, 1, 0, -0.5021297, 0, 0.8647923, -40.5, 11, 19.133974)
 size = Vector3(1, 23, 5)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="EastWall" unique_id=482813024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -4.5)
 size = Vector3(31, 25, 4)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="NorthWall" type="CSGCombiner3D" parent="." unique_id=813353569]
 use_collision = true
@@ -448,46 +552,57 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="NorthWall" unique_id=342246315]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 43.5)
 size = Vector3(44, 5, 6)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NorthWall" unique_id=1994212066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4.5, 45)
 size = Vector3(12, 4, 3)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="NorthWall" unique_id=1274557121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4.5, 42)
 size = Vector3(5, 4, 3)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="NorthWall" unique_id=691265394]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 7, 43.5)
 size = Vector3(8, 9, 6)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="NorthWall" unique_id=1916043751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 4.5, 45.5)
 size = Vector3(8, 4, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="NorthWall" unique_id=465378888]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 12, 47.5)
 size = Vector3(44, 19, 2)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="NorthWall" unique_id=454488137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 13, 42.5)
 size = Vector3(23, 3, 8)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="NorthWall" unique_id=1740021211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 15.5, 43.5)
 size = Vector3(22, 2, 6)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="NorthWall" unique_id=2074688023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 9.5, 39)
 size = Vector3(2, 24, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="NorthWall" unique_id=334078103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 9.5, 36)
 size = Vector3(9, 24, 21)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="NorthWall" unique_id=167070762]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 9.5, 24)
 size = Vector3(3, 24, 15)
+material = SubResource("StandardMaterial3D_1vv31")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=113398199]
 stream = ExtResource("3_fd2pj")
