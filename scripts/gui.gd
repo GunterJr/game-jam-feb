@@ -7,6 +7,7 @@ extends Control
 ## some other autoload for game state. Oh well.
 var has_letter : bool = false:
 	set(input):
+		has_letter = input
 		letter_label(input)
 
 func update_flight(new: float):

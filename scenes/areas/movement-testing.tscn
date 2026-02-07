@@ -117,3 +117,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9007504, 0.09811757, -1.40
 
 [node name="SuitorBee" parent="." unique_id=643648152 instance=ExtResource("5_5h40q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.076533, 0.19311757, 9.865849)
+
+[node name="SuitorBee2" parent="." unique_id=677231387 instance=ExtResource("5_5h40q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6014805, -2.7843404, -3.8239825)
