@@ -7,10 +7,13 @@ extends CharacterBody3D
 var flying : bool = false
 var current_flight_time: float = 0
 
+
+@onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -45,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		
 		var camera_basis = camarm.global_transform.basis
 		
-		var forward = camera_basis.z
+		var forward = -camera_basis.z
 		forward.y = 0
 		forward = forward.normalized()
 		
@@ -56,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
 		velocity.x = move_direction.x * speed
 		velocity.z = move_direction.z * speed
+		
+		var target_angle := Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
+		body.global_rotation.y = target_angle
 	else:
 		velocity.x = 0
 		velocity.z = 0

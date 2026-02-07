@@ -24,13 +24,16 @@ radius = 0.10107422
 height = 0.40304565
 
 [node name="Benson" type="CharacterBody3D" unique_id=193555425]
+collision_layer = 2
 script = ExtResource("1_u4qym")
 
-[node name="Body" type="MeshInstance3D" parent="." unique_id=1594903681]
-transform = Transform3D(3.0223063e-08, -1.2760384e-07, 1.0000001, 0.9730784, 0.23047432, -8.290451e-16, -0.2304743, 0.9730783, 1.3113416e-07, 0.013175983, 0, -0.011367302)
+[node name="Orientation" type="Node3D" parent="." unique_id=578184492]
+
+[node name="Body" type="MeshInstance3D" parent="Orientation" unique_id=1594903681]
+transform = Transform3D(-1.0055794e-08, 4.2538996e-08, 1.0000001, 0.97317886, 0.23004973, 0, -0.23004976, 0.97317874, -4.3711392e-08, 0.013175983, 0, -0.011367302)
 mesh = SubResource("CapsuleMesh_dp8yd")
 
-[node name="Head" type="MeshInstance3D" parent="Body" unique_id=756881920]
+[node name="Head" type="MeshInstance3D" parent="Orientation/Body" unique_id=756881920]
 transform = Transform3D(0.23047422, 0.97307795, 0, -0.97307795, 0.23047422, 0, 0, 0, 1, 0.07656011, 0.21735314, 0)
 mesh = SubResource("SphereMesh_u4qym")
 
