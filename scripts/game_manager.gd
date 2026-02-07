@@ -6,6 +6,10 @@ extends Node
 ## game progresses.
 var patience : float = 30
 var timing : bool = false
+@export var gaming : bool = false:
+	set(val):
+		gaming = val
+		new_route()
 
 var curr_queen : StaticBody3D
 var curr_suitor : StaticBody3D
@@ -26,6 +30,7 @@ func add_spawn(spawnpoint : Node3D):
 ## Spawns a queen and a suitor, removing the old ones. This crashes if there
 ## are no spawnpoints in the arrays!
 func new_route():
+	if not gaming: return
 	timing = true
 	print("generating new route")
 	# TODO: these queue_frees() should actually be calls to something like
