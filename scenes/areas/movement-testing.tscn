@@ -91,6 +91,10 @@ shape = SubResource("BoxShape3D_5hakr")
 transform = Transform3D(3, 0, 0, 0, -1, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_0kmkr")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D6" unique_id=1018382128]
+transform = Transform3D(3, 0, 0, 0, -1, 0, 0, 0, 3, 0, 0, 10.637159)
+mesh = SubResource("BoxMesh_0kmkr")
+
 [node name="Benson" parent="." unique_id=193555425 node_paths=PackedStringArray("spawnpoint") instance=ExtResource("1_0kmkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06578946, 0.66000307, 0.14967513)
 spawnpoint = NodePath("../Spawnpoint")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dfkgkk2hqb77"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p8kpe"]
+radius = 0.1
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d226x"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_p8kpe"]
+radius = 0.1
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tyor"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="SuitorBee" type="StaticBody3D" unique_id=643648152]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=63989046]
+mesh = SubResource("CapsuleMesh_p8kpe")
+surface_material_override/0 = SubResource("StandardMaterial3D_d226x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1423929763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16721326, 0)
+mesh = SubResource("SphereMesh_p8kpe")
+surface_material_override/0 = SubResource("StandardMaterial3D_1tyor")
