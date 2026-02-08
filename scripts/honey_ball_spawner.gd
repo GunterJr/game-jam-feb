@@ -5,15 +5,16 @@ extends StaticBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().root.ready
 	spawn()
 
 
 func spawn():
 	while spawning:
 		var new_ball = honey_ball.instantiate()
+		get_tree().root.add_child(new_ball)
+		new_ball.position = global_position
 		new_ball.honey_type = new_ball.Type.FLOATER
-		new_ball.position = self.position
-		get_tree().root.add_child.call_deferred(new_ball)
 		await get_tree().create_timer(randf_range(4, 7)).timeout
 		if new_ball:
 			new_ball.queue_free()
