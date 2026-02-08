@@ -36,6 +36,10 @@ func game_over():
 ## there are no spawnpoints in the arrays!
 func new_route():
 	if not gaming: return
+	if queen_spawns.size() == 0:
+		print("Fatal: There are no available queen spawns. Cancelling gameloop.")
+		gaming = false
+		return
 	timing = true
 	print("generating new route")
 	for spawn in queen_spawns:
