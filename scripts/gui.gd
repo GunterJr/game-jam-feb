@@ -7,6 +7,7 @@ extends Control
 @onready var game_over: Label = $CenterContainer/GameOver
 @onready var letters_label: Label = $MarginContainer2/VBoxContainer/LettersLabel
 @onready var score_label: Label = $MarginContainer2/VBoxContainer/ScoreLabel
+@onready var letter: RichTextLabel = $MarginContainer3/PanelContainer/LetterLabel
 
 var letters_delivered : int = 0;
 var num_letters : int = 0:
@@ -14,6 +15,9 @@ var num_letters : int = 0:
 		num_letters = input
 		letters_label.text = "Letters Delivered: " + str(letters_delivered)
 		letter_label(input)
+		letter.text = GameManager.held_letters.front().contents
+		letter.get_parent_control().visible = (num_letters != 0)
+		
 		
 func update_score(new: int):
 	score_label.text = "Score: " + str(new)

@@ -76,6 +76,16 @@ func new_route():
 		new.position = fresh_spawn.position
 		print("made suitor at ", new.position)
 
+## Adds value of each letter to the score, multiplied by the amount held. Clears
+## held_letters and updates GUI accordingly.
+func cash_out():
+	for letter : Letter in held_letters:
+		score += letter.quality * held_letters.size()
+	GUI.update_score(score)
+	GUI.letters_delivered += GameManager.held_letters.size()
+	GUI.num_letters = 0
+	held_letters.clear()
+	
 func _process(delta: float) -> void:
 	if not gaming: return
 	patience -= delta

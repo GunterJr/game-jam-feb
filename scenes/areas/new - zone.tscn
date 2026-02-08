@@ -1,0 +1,505 @@
+[gd_scene format=3 uid="uid://dyxfogpwa0oa4"]
+
+[ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_sw1u0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sw1u0"]
+
+[sub_resource type="Sky" id="Sky_et7hr"]
+sky_material = SubResource("ProceduralSkyMaterial_sw1u0")
+
+[sub_resource type="Environment" id="Environment_6o2de"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_et7hr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sw1u0"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.813, 0.33999997, 1)
+
+[node name="NewZone" type="Node3D" unique_id=1304043132]
+
+[node name="Benson" parent="." unique_id=193555425 instance=ExtResource("1_sw1u0")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1568133923]
+environment = SubResource("Environment_6o2de")
+
+[node name="MainHall" type="CSGCombiner3D" parent="." unique_id=529525448]
+use_collision = true
+
+[node name="Honeycomb" type="CSGCylinder3D" parent="MainHall" unique_id=1629715248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8545723, 0)
+use_collision = true
+radius = 2.0
+height = 1.2581711
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb2" type="CSGCylinder3D" parent="MainHall" unique_id=1019747865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.07638645, 8)
+use_collision = true
+radius = 2.0
+height = 2.8145428
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb3" type="CSGCylinder3D" parent="MainHall" unique_id=1941545308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.2199779, 15)
+use_collision = true
+radius = 2.0
+height = 5.4072714
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb4" type="CSGCylinder3D" parent="MainHall" unique_id=1571946706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.07638645, -1)
+use_collision = true
+radius = 2.0
+height = 2.8145428
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb5" type="CSGCylinder3D" parent="MainHall" unique_id=1638582725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.7199779, -2)
+use_collision = true
+radius = 2.0
+height = 6.4072714
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb6" type="CSGCylinder3D" parent="MainHall" unique_id=1183163517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.71997786, 2)
+use_collision = true
+radius = 2.0
+height = 4.4072714
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb7" type="CSGCylinder3D" parent="MainHall" unique_id=1318277681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.71997786, 2)
+use_collision = true
+radius = 2.0
+height = 4.4072714
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb8" type="CSGCylinder3D" parent="MainHall" unique_id=1524588266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.61816, -2)
+use_collision = true
+radius = 2.0
+height = 6.2036357
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb9" type="CSGCylinder3D" parent="MainHall" unique_id=1959267745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.38184, -8)
+use_collision = true
+radius = 2.0
+height = 2.2036357
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb10" type="CSGCylinder3D" parent="MainHall" unique_id=1471836190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5672512, -16)
+use_collision = true
+radius = 2.0
+height = 6.101818
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb11" type="CSGCylinder3D" parent="MainHall" unique_id=387311328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.7790694, -25)
+use_collision = true
+radius = 3.0
+height = 6.5254545
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb12" type="CSGCylinder3D" parent="MainHall" unique_id=162049727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.647706, -36)
+use_collision = true
+radius = 3.0
+height = 8.262728
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb14" type="CSGCylinder3D" parent="MainHall" unique_id=1772560247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.4077625, -33)
+use_collision = true
+radius = 3.0
+height = 5.7828407
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb15" type="CSGCylinder3D" parent="MainHall" unique_id=1097886325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61, 1.4077625, 2)
+use_collision = true
+radius = 3.0
+height = 5.7828407
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb16" type="CSGCylinder3D" parent="MainHall" unique_id=172874891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.4077625, 2)
+use_collision = true
+radius = 3.0
+height = 5.7828407
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb17" type="CSGCylinder3D" parent="MainHall" unique_id=1870242153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 2.4620523, -3)
+use_collision = true
+radius = 3.0
+height = 7.8914204
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb18" type="CSGCylinder3D" parent="MainHall" unique_id=627544279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 3.4620523, 12)
+use_collision = true
+radius = 3.0
+height = 9.89142
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb19" type="CSGCylinder3D" parent="MainHall" unique_id=1240229256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -4.5379477, 40)
+use_collision = true
+radius = 3.0
+height = 9.89142
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb20" type="CSGCylinder3D" parent="MainHall" unique_id=1474961222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -2.5108027, 41)
+use_collision = true
+radius = 3.0
+height = 13.94571
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb22" type="CSGCylinder3D" parent="MainHall" unique_id=1889325607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.4972305, 28)
+use_collision = true
+radius = 3.0
+height = 15.972855
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb23" type="CSGCylinder3D" parent="MainHall" unique_id=815162534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 1.4077625, 0)
+use_collision = true
+radius = 3.0
+height = 5.7828407
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb24" type="CSGCylinder3D" parent="MainHall" unique_id=1793021762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 1.4891973, 22)
+use_collision = true
+radius = 3.0
+height = 5.94571
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb26" type="CSGCylinder3D" parent="MainHall" unique_id=1836559101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.4620523, -37)
+use_collision = true
+radius = 3.0
+height = 7.8914204
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb27" type="CSGCylinder3D" parent="MainHall" unique_id=1304690038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -0.53794765, -40)
+use_collision = true
+radius = 3.0
+height = 7.8914204
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb21" type="CSGCylinder3D" parent="MainHall" unique_id=1270248012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 2.4620523, -19)
+use_collision = true
+radius = 3.0
+height = 7.8914204
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb25" type="CSGCylinder3D" parent="MainHall" unique_id=61135714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -3.5108027, -32)
+use_collision = true
+radius = 3.0
+height = 1.9457102
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb28" type="CSGCylinder3D" parent="MainHall" unique_id=2088348773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, -2.4972303, -39)
+use_collision = true
+radius = 3.0
+height = 3.972855
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb13" type="CSGCylinder3D" parent="MainHall" unique_id=1151880243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1.61816, -2)
+use_collision = true
+radius = 3.0
+height = 6.2036357
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb29" type="CSGCylinder3D" parent="MainHall" unique_id=251442542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 1.61816, 3)
+use_collision = true
+radius = 3.0
+height = 6.2036357
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb30" type="CSGCylinder3D" parent="MainHall" unique_id=980087608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2.0672512, 11)
+use_collision = true
+radius = 2.0
+height = 7.101818
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb31" type="CSGCylinder3D" parent="MainHall" unique_id=692696286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.0672512, 30)
+use_collision = true
+radius = 2.0
+height = 7.101818
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="Honeycomb32" type="CSGCylinder3D" parent="MainHall" unique_id=1147305058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 1.2917967, 23)
+use_collision = true
+radius = 2.0
+height = 5.550909
+sides = 6
+material = SubResource("StandardMaterial3D_sw1u0")
+
+[node name="MainHallFloor" type="CSGCombiner3D" parent="." unique_id=2141556054]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MainHallFloor" unique_id=198667812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(9, 1, 9)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MainHallFloor" unique_id=887675736]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, -12.829629, 0.29409516, 0)
+size = Vector3(21, 1, 9)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MainHallFloor" unique_id=1443409235]
+transform = Transform3D(-4.2221963e-08, -1.13133405e-08, 1.0000001, -0.25881907, 0.96592593, 0, -0.9659258, -0.25881904, -4.371139e-08, 0.10222251, 0.16468567, 12.448889)
+size = Vector3(20, 1, 9)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MainHallFloor" unique_id=1185852291]
+transform = Transform3D(-5.9604645e-08, -2.9802322e-08, -1, -0.258819, 0.9659258, -7.450582e-09, 0.96592563, 0.258819, 2.9802322e-08, 0.10222253, 0.16468559, -12.448888)
+size = Vector3(20, 1, 9)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="MainHallFloor" unique_id=1143013417]
+transform = Transform3D(-0.9659259, -0.25881907, 8.940697e-08, -0.25881907, 0.96592593, -3.856706e-09, -7.4505806e-08, -1.4901161e-08, -0.99999994, 12.551111, 0.16468567, 1.1175871e-07)
+size = Vector3(20, 1, 9)
+
+[node name="UpperHallFloors" type="CSGCombiner3D" parent="." unique_id=1543288265]
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="UpperHallFloors" unique_id=300237604]
+transform = Transform3D(-4.2221966e-08, -1.13133405e-08, 1.0000001, -2.9802322e-08, 1, 1.1313339e-08, -0.9999999, 1.4901161e-08, -4.222196e-08, 0.10222265, 2.1646857, 35.94889)
+size = Vector3(29, 1, 13)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="UpperHallFloors" unique_id=871484694]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -31.895298, 2.1508918, 6.352578)
+size = Vector3(21, 1, 26)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="UpperHallFloors" unique_id=359182882]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -28.397778, -3.3353143, 40.94889)
+size = Vector3(14, 2, 11)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="UpperHallFloors" unique_id=1057913991]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894322e-09, -2.9172321e-08, 0.9659258, -0.25881907, -6.2747416e-09, 0.25881904, 0.96592593, -28.397778, -0.800038, 28.085186)
+size = Vector3(14, 1, 19)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="UpperHallFloors" unique_id=1793143474]
+transform = Transform3D(-3.7436642e-08, -0.25881904, -0.96592593, -2.917232e-08, 0.96592575, -0.25881904, 0.9999998, -2.62145e-08, -4.3711392e-08, -12.397778, -0.800038, 39.085186)
+size = Vector3(14, 1, 19)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="UpperHallFloors" unique_id=171733297]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -5.8977776, 2.1646857, -34.55111)
+size = Vector3(21, 1, 26)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="UpperHallFloors" unique_id=547641903]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894321e-09, -2.6554273e-08, 0.8660253, -0.5, -1.36112845e-08, 0.49999994, 0.86602545, -11.397778, -4.835314, -10.551109)
+size = Vector3(10, 1, 26)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="UpperHallFloors" unique_id=1854708900]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894322e-09, -2.9802319e-08, 0.9999999, 2.9802322e-08, 1.4894175e-09, -2.9802322e-08, 1, -11.397778, -11.835314, 9.948891)
+size = Vector3(14, 1, 19)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="UpperHallFloors" unique_id=371391438]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, 34.665455, 2.1646857, 0.4488907)
+size = Vector3(26, 1, 14)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="UpperHallFloors" unique_id=1829409626]
+transform = Transform3D(-0.7071067, 1.8536452e-08, -0.7071068, -2.9802322e-08, 1, 1.131334e-08, 0.7071066, -2.5369697e-09, -0.70710695, 21.55454, 2.1646852, 24.671505)
+size = Vector3(59, 1, 11)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="UpperHallFloors" unique_id=431776197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 5.5, -0.5)
+size = Vector3(3, 14, 20)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="UpperHallFloors" unique_id=755130634]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -53.397778, 2.1646862, 0.4488907)
+size = Vector3(22, 1, 14)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="UpperHallFloors" unique_id=77447720]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.8401343e-08, 0.9659258, 0.25881907, 9.152076e-09, -0.25881904, 0.96592593, -58.397778, -0.8353138, -17.950588)
+size = Vector3(12, 1, 25)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="UpperHallFloors" unique_id=2109808388]
+transform = Transform3D(0, -0.258819, -0.9659258, -3.6885737e-08, 0.96592593, -0.25881907, 1.0000001, 7.450581e-09, 7.4505806e-08, -40.397778, -0.8353138, -36.95059)
+size = Vector3(12, 1, 25)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="UpperHallFloors" unique_id=1935656195]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -57.897778, -3.8353138, -36.55111)
+size = Vector3(13, 1, 14)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="UpperHallFloors" unique_id=1050351480]
+transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, -22.897778, 2.1646862, -36.55111)
+size = Vector3(13, 1, 14)
+
+[node name="HallWalls" type="CSGCombiner3D" parent="." unique_id=1170458025]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="HallWalls" unique_id=1028044603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.5, 13)
+size = Vector3(2, 24, 17)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="HallWalls" unique_id=746497947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 5.5, 13)
+size = Vector3(2, 14, 17)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="HallWalls" unique_id=1419890447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5.5, 23)
+size = Vector3(2, 14, 17)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="HallWalls" unique_id=701210250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 5.5, 27)
+size = Vector3(2, 14, 11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="HallWalls" unique_id=566177575]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 18.813707, 5.5, 18.68629)
+size = Vector3(2, 14, 33)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="HallWalls" unique_id=1558696752]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 27.267765, 5.5, 27.232233)
+size = Vector3(2, 14, 58)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="HallWalls" unique_id=114807478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, -3, 8)
+size = Vector3(14, 1, 23)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="HallWalls" unique_id=1054432332]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, -0.70710677, 0, 0.70710677, 0.7071067, -11.5, 5, -11)
+size = Vector3(14, 1, 23)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="HallWalls" unique_id=778517214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 5.5, 6)
+size = Vector3(17, 14, 3)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="HallWalls" unique_id=1834240133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 5.5, -6)
+size = Vector3(17, 14, 3)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="HallWalls" unique_id=978953188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 5.5, -8.5)
+size = Vector3(27, 14, 4)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="HallWalls" unique_id=1721827004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 5.5, 8)
+size = Vector3(8, 14, 3)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="HallWalls" unique_id=1159314252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -0.5, -13)
+size = Vector3(2, 26, 17)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="HallWalls" unique_id=1099952357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -0.5, -26)
+size = Vector3(2, 26, 43)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="HallWalls" unique_id=1175700376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 6.5, -5.5)
+size = Vector3(17, 12, 2)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="HallWalls" unique_id=1962830727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, -47.5)
+size = Vector3(23, 26, 2)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="HallWalls" unique_id=132329429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5, -0.5, -46)
+size = Vector3(48, 26, 5)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="HallWalls" unique_id=826848945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -0.5, -20.5)
+size = Vector3(3, 26, 56)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="HallWalls" unique_id=1956492134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, -0.5, -19)
+size = Vector3(3, 26, 25)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="HallWalls" unique_id=249482133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -0.5, -29.5)
+size = Vector3(21, 26, 4)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="HallWalls" unique_id=111436824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -0.5, -27.5)
+size = Vector3(21, 26, 4)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="HallWalls" unique_id=1893988751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, -0.5, -16)
+size = Vector3(4, 26, 19)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="HallWalls" unique_id=94839845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -0.5, -9)
+size = Vector3(33, 26, 5)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="HallWalls" unique_id=292008127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 5, 5.5)
+size = Vector3(16, 15, 2)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="HallWalls" unique_id=347149157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 0.5, 18.5)
+size = Vector3(2, 24, 28)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="HallWalls" unique_id=1358840818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 31)
+size = Vector3(11, 24, 3)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="HallWalls" unique_id=182465967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 49)
+size = Vector3(15, 24, 3)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="HallWalls" unique_id=2109555378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 47)
+size = Vector3(15, 24, 3)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="HallWalls" unique_id=500846681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5, 0.5, 48)
+size = Vector3(14, 24, 3)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="HallWalls" unique_id=844005384]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -39, 0.5, 33)
+size = Vector3(28, 24, 8)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="HallWalls" unique_id=1463031633]
+transform = Transform3D(0, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, 0, -54.5, 0.5, 13.499998)
+size = Vector3(13, 24, 25)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=809376225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 18, -6)
+size = Vector3(146, 11, 117)

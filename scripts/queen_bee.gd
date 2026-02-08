@@ -33,11 +33,7 @@ func on_player_enter(_body: Node3D) -> void:
 		speak("Shouldn't you ~bee~ doing something?")
 		return
 	print("Letter sent!")
-	# This should probably call something like cash_out() on GameManager
-	GameManager.score += 1
-	GUI.letters_delivered += GameManager.held_letters.size()
-	GUI.num_letters = 0
-	GameManager.held_letters.clear() # memory leak?
+	GameManager.cash_out()
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
 	# TODO: scrolling text
 	speak(phrase)
