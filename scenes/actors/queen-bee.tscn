@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://k0xd16a348p4"]
+
+[ext_resource type="Script" uid="uid://ba2e1hqm6oddu" path="res://scripts/queen_bee.gd" id="1_lawqd"]
+[ext_resource type="AudioStream" uid="uid://cy36iux8n4eh4" path="res://audio/fx/talk/talk1.wav" id="2_q1rfj"]
+[ext_resource type="AudioStream" uid="uid://ba003dit61l1d" path="res://audio/fx/talk/talk2.wav" id="3_62n52"]
+[ext_resource type="AudioStream" uid="uid://dlob0vx4165xj" path="res://audio/fx/talk/talk3.wav" id="4_ro7bq"]
+[ext_resource type="AudioStream" uid="uid://b8e0hc18f7r1j" path="res://audio/fx/talk/talk4.wav" id="5_5bm6n"]
+[ext_resource type="AudioStream" uid="uid://jba1maav0t7c" path="res://audio/fx/talk/talk5.wav" id="6_4eh2x"]
+[ext_resource type="AudioStream" uid="uid://c8n7xdnx352kj" path="res://audio/fx/talk/talk6.wav" id="7_wglvj"]
+[ext_resource type="Texture2D" uid="uid://cd38enda8yiy0" path="res://textures/flag.png" id="8_62n52"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bon43"]
+radius = 0.3
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lawqd"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_834ml"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fefu"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6kwil"]
+radius = 0.31280664
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cbcck"]
+size = Vector3(1.2, 0.6300049, 1.2)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2habd"]
+streams_count = 6
+stream_0/stream = ExtResource("2_q1rfj")
+stream_1/stream = ExtResource("3_62n52")
+stream_2/stream = ExtResource("4_ro7bq")
+stream_3/stream = ExtResource("5_5bm6n")
+stream_4/stream = ExtResource("6_4eh2x")
+stream_5/stream = ExtResource("7_wglvj")
+
+[node name="QueenBee" type="StaticBody3D" unique_id=945527957]
+script = ExtResource("1_lawqd")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=326506390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
+mesh = SubResource("SphereMesh_bon43")
+surface_material_override/0 = SubResource("StandardMaterial3D_lawqd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=199551156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26721355, 0)
+mesh = SubResource("SphereMesh_834ml")
+surface_material_override/0 = SubResource("StandardMaterial3D_1fefu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=794506715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34998798, 0)
+shape = SubResource("SphereShape3D_6kwil")
+
+[node name="DeliverTrigger" type="Area3D" parent="." unique_id=1752955624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeliverTrigger" unique_id=729930832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19927773, 0)
+shape = SubResource("BoxShape3D_cbcck")
+
+[node name="Voice" type="Label3D" parent="." unique_id=566326706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81205964, 0)
+pixel_size = 0.003
+billboard = 1
+text = "the QUEEN"
+
+[node name="Talker" type="AudioStreamPlayer3D" parent="." unique_id=112442637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)
+stream = SubResource("AudioStreamRandomizer_2habd")
+pitch_scale = 1.2
+bus = &"Effects"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=669213345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7126393, 0)
+pixel_size = 0.05
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("8_62n52")
+
+[connection signal="body_entered" from="DeliverTrigger" to="." method="on_player_enter"]

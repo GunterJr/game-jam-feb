@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bdl5r6jfrxnn4"]
+
+[ext_resource type="Script" uid="uid://dqvrfdnr78vsk" path="res://scripts/killer.gd" id="1_key1r"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ij4p6"]
+
+[node name="Killer" type="Area3D" unique_id=785259735]
+collision_mask = 2
+script = ExtResource("1_key1r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58434857]
+shape = SubResource("WorldBoundaryShape3D_ij4p6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

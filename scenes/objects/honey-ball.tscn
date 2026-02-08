@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d3w30uoyca4fd"]
+
+[ext_resource type="Script" uid="uid://byrmjptplqq45" path="res://scripts/honey_ball.gd" id="1_u0cyn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm01i"]
+albedo_color = Color(1, 0.3137255, 1, 1)
+metallic = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wd4cw"]
+radius = 0.3
+
+[node name="HoneyBall" type="Area3D" unique_id=726348483]
+collision_mask = 2
+script = ExtResource("1_u0cyn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=269016744]
+radius = 0.3
+material = SubResource("StandardMaterial3D_mm01i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1166648590]
+shape = SubResource("SphereShape3D_wd4cw")
+
+[node name="Timer" type="Timer" parent="." unique_id=1551669417]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_regrow"]

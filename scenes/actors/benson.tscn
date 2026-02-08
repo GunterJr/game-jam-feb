@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b3lnfnn3odxmx"]
+
+[ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
+[ext_resource type="Script" path="res://scripts/camera_arm.gd" id="2_81iw3"]
+[ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
+[ext_resource type="AudioStream" uid="uid://dby8oy8c8i7xv" path="res://audio/fx/dash.wav" id="4_lu2wp"]
+[ext_resource type="AudioStream" uid="uid://bdikp5ijtkgrf" path="res://audio/fx/fart.wav" id="5_1qeby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4qym"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dp8yd"]
+material = SubResource("StandardMaterial3D_u4qym")
+radius = 0.1
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81iw3"]
+albedo_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_u4qym"]
+material = SubResource("StandardMaterial3D_81iw3")
+radius = 0.06
+height = 0.12
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_81iw3"]
+radius = 0.10107422
+height = 0.40304565
+
+[node name="Benson" type="CharacterBody3D" unique_id=193555425]
+collision_layer = 2
+script = ExtResource("1_u4qym")
+
+[node name="Orientation" type="Node3D" parent="." unique_id=578184492]
+
+[node name="Body" type="MeshInstance3D" parent="Orientation" unique_id=1594903681]
+transform = Transform3D(-1.0055794e-08, 4.2538996e-08, 1.0000001, 0.97317886, 0.23004973, 0, -0.23004976, 0.97317874, -4.3711392e-08, 0.013175983, 0, -0.011367302)
+mesh = SubResource("CapsuleMesh_dp8yd")
+
+[node name="Head" type="MeshInstance3D" parent="Orientation/Body" unique_id=756881920]
+transform = Transform3D(0.23047422, 0.97307795, 0, -0.97307795, 0.23047422, 0, 0, 0, 1, 0.07656011, 0.21735314, 0)
+mesh = SubResource("SphereMesh_u4qym")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="." unique_id=833329893]
+transform = Transform3D(3.394002e-08, -1.2666585e-07, 1.0000001, 0.9659259, 0.25881907, -8.881785e-16, -0.25881904, 0.96592575, 1.3113419e-07, 0.013175982, -0.0021349192, -0.010622483)
+shape = SubResource("CapsuleShape3D_81iw3")
+
+[node name="CameraArm" type="SpringArm3D" parent="." unique_id=53182570]
+transform = Transform3D(-1, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1, 0.052703943, 0.09340754, -0.04397956)
+spring_length = 2.0
+script = ExtResource("2_81iw3")
+min_vert = -1.2217304763960306
+max_vert = 0.5235987755982988
+
+[node name="Camera3D" type="Camera3D" parent="CameraArm" unique_id=889376277]
+transform = Transform3D(1, 8.258129e-09, 7.871712e-10, -8.258128e-09, 0.98199177, 0.18892407, 7.871641e-10, -0.18892407, 0.98199177, 0.03952786, 0.7038084, 2.1421719)
+fov = 69.0
+
+[node name="Buzzer" type="AudioStreamPlayer3D" parent="." unique_id=1896265478]
+stream = ExtResource("3_8dec6")
+bus = &"Effects"
+
+[node name="DashSound" type="AudioStreamPlayer3D" parent="." unique_id=1241216160]
+stream = ExtResource("4_lu2wp")
+bus = &"Effects"
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=1407196455]
+stream = ExtResource("5_1qeby")
+volume_db = 12.651
+bus = &"Effects"

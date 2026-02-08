@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c7rwuc6ols6vy"]
+
+[ext_resource type="Script" uid="uid://dyiotcn8ascth" path="res://scripts/actor_spawn.gd" id="1_b50vt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b50vt"]
+radius = 0.2
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wgpy"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_b50vt"]
+inner_radius = 0.131
+outer_radius = 0.157
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40ktj"]
+albedo_color = Color(1, 1, 0.3764706, 1)
+
+[node name="ActorSpawn" type="Node3D" unique_id=2091310828]
+script = ExtResource("1_b50vt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1541829344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3829764, 0)
+mesh = SubResource("CapsuleMesh_b50vt")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wgpy")
+
+[node name="crown" type="MeshInstance3D" parent="." unique_id=381770856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8212961, 0)
+mesh = SubResource("TorusMesh_b50vt")
+surface_material_override/0 = SubResource("StandardMaterial3D_40ktj")
