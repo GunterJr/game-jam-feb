@@ -3,7 +3,7 @@ extends Area3D
 enum Type {FLOATER, REGROWER}
 @export var honey_type : Type
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if honey_type == Type.FLOATER:
 		position.y += .05
 

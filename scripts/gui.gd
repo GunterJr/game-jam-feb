@@ -5,15 +5,18 @@ extends Control
 @onready var flight_bar: ProgressBar = $MarginContainer/VBoxContainer/FlightBar
 @onready var patience_left: Label = $MarginContainer/VBoxContainer/PatienceLeft
 @onready var game_over: Label = $CenterContainer/GameOver
-@onready var score_label: Label = $MarginContainer2/ScoreLabel
+@onready var letters_label: Label = $MarginContainer2/VBoxContainer/LettersLabel
+@onready var score_label: Label = $MarginContainer2/VBoxContainer/ScoreLabel
 
-## Really, this should not be stored in a GUI singleton, it probably should be 
-## some other autoload for game state. Oh well.
-var has_letter : bool = false:
+var letters_delivered : int = 0;
+var num_letters : int = 0:
 	set(input):
-		has_letter = input
-		score_label.text = "Letters Delivered: " + str(GameManager.score)
+		num_letters = input
+		letters_label.text = "Letters Delivered: " + str(letters_delivered)
 		letter_label(input)
+		
+func update_score(new: int):
+	score_label.text = "Score: " + str(new)
 
 func update_patience(new: float):
 	new = roundf(new)
@@ -26,12 +29,12 @@ func update_flight(new: float):
 	flight_remaining.text = out
 	flight_bar.value = new
 	
-func letter_label(letter : bool) -> void:
+func letter_label(letter : int) -> void:
 	if letter:
-		letter_status.text = "Holding Letter!"
+		letter_status.text = "Holding Letter x" + str(letter)
 		letter_status.add_theme_color_override("font_color", Color(0.0, 0.808, 0.0, 1.0))
 	else:
-		letter_status.text = "No Letter"
+		letter_status.text = "No Letters!"
 		letter_status.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
 
 func flash_game_over():

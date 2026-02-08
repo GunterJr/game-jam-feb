@@ -28,16 +28,19 @@ func speak(phrase : String):
 	await get_tree().create_timer(5).timeout
 	voice.text = ""
 
-func on_player_enter(body: Node3D) -> void:
-	if !GUI.has_letter:
-		speak("Shouldn't you bee doing something?")
+func on_player_enter(_body: Node3D) -> void:
+	if GameManager.held_letters.is_empty():
+		speak("Shouldn't you ~bee~ doing something?")
 		return
 	print("Letter sent!")
+	# This should probably call something like cash_out() on GameManager
 	GameManager.score += 1
+	GUI.letters_delivered += GameManager.held_letters.size()
+	GUI.num_letters = 0
+	GameManager.held_letters.clear() # memory leak?
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
 	# TODO: scrolling text
 	speak(phrase)
-	GUI.has_letter = false
 	GameManager.patience += patience_gained
 	await get_tree().create_timer(2).timeout
 	GameManager.new_route()
