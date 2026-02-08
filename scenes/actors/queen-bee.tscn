@@ -40,6 +40,7 @@ stream_5/stream = ExtResource("7_wglvj")
 
 [node name="QueenBee" type="StaticBody3D" unique_id=945527957]
 script = ExtResource("1_lawqd")
+patience_gained = null
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=326506390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29866815, 0)

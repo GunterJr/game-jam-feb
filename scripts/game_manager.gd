@@ -17,11 +17,30 @@ var held_letters : Array[Letter]
 var curr_queen : StaticBody3D
 var curr_suitors : Array[StaticBody3D]
 
-@export var queen_template : PackedScene
-@export var suitor_template : PackedScene
+@export var queen_template : PackedScene = preload("res://scenes/actors/queen-bee.tscn")
+@export var suitor_template : PackedScene = preload("res://scenes/actors/suitor-bee.tscn")
+## Amount of suitors to spawn on a new route.
+@export var suitors_to_spawn : int = 5
+## Amount of patience delivering letters awards the player with.
+@export var patience_gained : float = 30.0
 
 var queen_spawns : Array[Node3D]
 var suitor_spawns : Array[Node3D] # not used
+
+func reset():
+	if curr_queen:
+		curr_queen.queue_free()
+	for suitor in curr_suitors:
+		suitor.queue_free()
+	queen_spawns.clear()
+	curr_queen = null
+	curr_suitors.clear()
+	held_letters.clear()
+	patience = 30
+	score = 0
+	GUI.num_letters = 0
+	GUI.update_patience(patience)
+	GUI.update_score(score)
 
 ## Adds given spawnpoint Node3D into pool.
 func add_spawn(spawnpoint : Node3D):
@@ -33,6 +52,9 @@ func add_spawn(spawnpoint : Node3D):
 func game_over():
 	gaming = false
 	GUI.flash_game_over()
+	await get_tree().create_timer(5).timeout
+	reset()
+	get_tree().change_scene_to_file("res://scenes/areas/main-menu.tscn")
 
 ## Spawns a queen and a few suitors, removing the old ones. This crashes if 
 ## there are no spawnpoints in the arrays!
@@ -63,7 +85,7 @@ func new_route():
 	for suitor in curr_suitors:
 		suitor.queue_free()
 	curr_suitors.clear()
-	for i in 3:
+	for i in suitors_to_spawn:
 		var new : StaticBody3D = suitor_template.instantiate()
 		get_tree().root.add_child(new)
 		curr_suitors.append(new)
@@ -72,7 +94,7 @@ func new_route():
 			print("occupied, rerolling")
 			fresh_spawn = queen_spawns.pick_random()
 		fresh_spawn.occupied = true
-		# TODO: made this the queen array so they both can yuse it
+		# FIXME: made this the queen array so they both can yuse it
 		new.position = fresh_spawn.position
 		print("made suitor at ", new.position)
 

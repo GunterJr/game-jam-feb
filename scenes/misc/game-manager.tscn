@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://cycqao4smfmhs"]
 
 [ext_resource type="Script" uid="uid://bpb8fdoftktjp" path="res://scripts/game_manager.gd" id="1_i7op2"]
-[ext_resource type="PackedScene" uid="uid://k0xd16a348p4" path="res://scenes/actors/queen-bee.tscn" id="2_4v6at"]
-[ext_resource type="PackedScene" uid="uid://dfkgkk2hqb77" path="res://scenes/actors/suitor-bee.tscn" id="3_tilg6"]
 
 [node name="GameManager" type="Node" unique_id=1184582660]
 script = ExtResource("1_i7op2")
-queen_template = ExtResource("2_4v6at")
-suitor_template = ExtResource("3_tilg6")

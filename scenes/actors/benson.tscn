@@ -81,6 +81,15 @@ _data = {
 [node name="Benson" type="CharacterBody3D" unique_id=193555425]
 collision_layer = 2
 script = ExtResource("1_u4qym")
+speed = null
+flight_speed = null
+friction = null
+air_friction = null
+jump_velocity = null
+flight_velocity = null
+flight_time = null
+max_flight_speed = null
+dash_velocity = null
 
 [node name="Orientation" type="Node3D" parent="." unique_id=578184492]
 

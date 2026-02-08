@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8ncji6qyq7np" path="res://scripts/main_menu.gd" id="1_jyjuj"]
 [ext_resource type="Texture2D" uid="uid://bv8wjxnj2i3ox" path="res://models/benson_Low_Poly_Bee_Base_color.webp" id="2_h5rob"]
+[ext_resource type="AudioStream" uid="uid://ja5hi2vq3iy0" path="res://audio/fx/byebye.wav" id="3_oq6nt"]
 
 [sub_resource type="Environment" id="Environment_oq6nt"]
 background_mode = 1
@@ -158,12 +159,12 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/CenterContainer" unique_id=320679829]
 layout_mode = 2
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Menu" type="VBoxContainer" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer" unique_id=899353044]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 350)
+custom_minimum_size = Vector2(400, 370)
 layout_mode = 2
 theme_override_constants/separation = 19
 
@@ -196,4 +197,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Credits"
 
+[node name="Exit" type="Button" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=1567391923]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Quit
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/Exit" unique_id=555589936]
+unique_name_in_owner = true
+stream = ExtResource("3_oq6nt")
+pitch_scale = 1.4
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/Exit" to="." method="_on_exit_pressed"]

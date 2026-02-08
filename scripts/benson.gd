@@ -37,13 +37,11 @@ func respawn() -> void:
 
 func die():
 	death_sound.play()
-	GameManager.gaming = false
-	GUI.flash_game_over()
 	visible = false
 	speed = 0
 	jump_velocity = 0
 	dash_velocity = 0
-	
+	GameManager.game_over()
 
 func _ready() -> void:
 	GUI.visible = true
