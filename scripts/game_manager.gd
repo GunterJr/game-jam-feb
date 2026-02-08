@@ -2,11 +2,13 @@ extends Node
 
 # TODO: this will handle logic for spawn points, timers, anything game related
 
-## Time remaining to deliver the current letter. Rate of change increases as the
-## game progresses.
+## Time remaining to deliver the current letter in seconds. 
+## Rate of change increases as the game progresses.
 var patience : float = 30
-var timing : bool = false
 var score : int = 0
+## Letters that Benson currently has in his inventory to be delivered. 
+var held_letters : Array[Letter]
+## Decides whether the game loop is active or not. Calls new_route() on mutate.
 @export var gaming : bool = false:
 	set(val):
 		gaming = val
@@ -40,7 +42,6 @@ func new_route():
 		print("Fatal: There are no available queen spawns. Cancelling gameloop.")
 		gaming = false
 		return
-	timing = true
 	print("generating new route")
 	for spawn in queen_spawns:
 		spawn.occupied = false
@@ -75,8 +76,18 @@ func new_route():
 		new.position = fresh_spawn.position
 		print("made suitor at ", new.position)
 
+## Adds value of each letter to the score, multiplied by the amount held. Clears
+## held_letters and updates GUI accordingly.
+func cash_out():
+	for letter : Letter in held_letters:
+		score += letter.quality * held_letters.size()
+	GUI.update_score(score)
+	GUI.letters_delivered += GameManager.held_letters.size()
+	GUI.num_letters = 0
+	held_letters.clear()
+	
 func _process(delta: float) -> void:
-	if not timing or not gaming: return
+	if not gaming: return
 	patience -= delta
 	if patience <= 0:
 		patience = 0

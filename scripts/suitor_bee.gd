@@ -26,14 +26,16 @@ func speak(phrase : String):
 	await get_tree().create_timer(5).timeout
 	voice.text = ""
 
-func on_player_enter(body: Node3D) -> void:
-	if GUI.has_letter:
-		speak("You look like you have a letter already!")
-		return
+func on_player_enter(_body: Node3D) -> void:
 	print("Letter get!")
+	# The following four lines handle making a new letter,
+	# these could probably happen in the Letter class as well
+	var new_letter : Letter = Letter.new()
+	new_letter.quality = randi_range(0, 5)
+	new_letter.gen_contents()
+	GameManager.held_letters.append(new_letter)
+	GUI.num_letters += 1
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
-	speak(phrase)
 	# TODO: scrolling text
 	$CollectTrigger/CollisionShape3D.set_deferred("disabled", true)
-	GUI.has_letter = true
-	
+	speak(phrase)
