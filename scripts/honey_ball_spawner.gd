@@ -11,7 +11,7 @@ func _ready() -> void:
 func spawn():
 	while spawning:
 		var new_ball = honey_ball.instantiate()
-		self.get_parent().add_child(new_ball)
+		self.get_parent().add_child.call_deferred(new_ball)
 		new_ball.position = global_position
 		new_ball.honey_type = new_ball.Type.FLOATER
 		await get_tree().create_timer(randf_range(4, 7)).timeout
