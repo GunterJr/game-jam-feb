@@ -46,6 +46,7 @@ func die():
 	
 
 func _ready() -> void:
+	GUI.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	up_direction = Vector3.UP
 	respawn()
@@ -132,8 +133,11 @@ func _physics_process(delta: float) -> void:
 			velocity = -camera_basis.z * dash_velocity;
 			dash_sound.play()
 			current_flight_time += 0.4
-			
-	
+			# might be removed but thought it was cool -connor
+			var tween : Tween = get_tree().create_tween()
+			tween.tween_property($CameraArm/Camera3D, "fov", 75, .05)
+			tween.tween_property($CameraArm/Camera3D, "fov", 69, .1)
+
 	if is_on_floor() and up_direction == Vector3.UP:
 		velocity.x *= friction
 		velocity.z *= friction
@@ -146,6 +150,6 @@ func _physics_process(delta: float) -> void:
 	current_velocity = velocity
 
 ## "Refreshes" the players flight time. This method could techincally be placed
-## in any object that flys.
+## in any object that "flys".
 func refresh():
 	current_flight_time = 0

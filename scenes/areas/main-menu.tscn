@@ -1,19 +1,22 @@
-[gd_scene format=4 uid="uid://b3lnfnn3odxmx"]
+[gd_scene format=4 uid="uid://bpm2tp8wii4qu"]
 
-[ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
-[ext_resource type="Texture2D" uid="uid://bv8wjxnj2i3ox" path="res://models/benson_Low_Poly_Bee_Base_color.webp" id="2_5foox"]
-[ext_resource type="Script" path="res://scripts/camera_arm.gd" id="2_81iw3"]
-[ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
-[ext_resource type="AudioStream" uid="uid://dby8oy8c8i7xv" path="res://audio/fx/dash.wav" id="4_lu2wp"]
-[ext_resource type="AudioStream" uid="uid://bdikp5ijtkgrf" path="res://audio/fx/fart.wav" id="5_1qeby"]
+[ext_resource type="Script" uid="uid://b8ncji6qyq7np" path="res://scripts/main_menu.gd" id="1_jyjuj"]
+[ext_resource type="Texture2D" uid="uid://bv8wjxnj2i3ox" path="res://models/benson_Low_Poly_Bee_Base_color.webp" id="2_h5rob"]
+
+[sub_resource type="Environment" id="Environment_oq6nt"]
+background_mode = 1
+background_color = Color(0.7, 0.5992, 0.364, 1)
+ambient_light_color = Color(0.7967341, 0.6738557, 0.22145447, 1)
+ambient_light_energy = 2.29
+fog_light_color = Color(0.69241667, 0.7, 0.24500002, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7723y"]
 resource_name = "Low Poly Bee"
 cull_mode = 2
-albedo_texture = ExtResource("2_5foox")
+albedo_texture = ExtResource("2_h5rob")
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_trtgw"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_oq6nt"]
 resource_name = "benson_Plane_001"
 _blend_shape_names = PackedStringArray("Wings Down", "WIngs Up")
 _surfaces = [{
@@ -36,16 +39,12 @@ metadata/extras = {
 "targetNames": ["Wings Down", "WIngs Up"]
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_81iw3"]
-radius = 0.10107422
-height = 0.40304565
-
-[sub_resource type="Animation" id="Animation_5foox"]
+[sub_resource type="Animation" id="Animation_vnpvw"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Orientation/Body:blend_shapes/Wings Down")
+tracks/0/path = NodePath(".:blend_shapes/Wings Down")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,15 +54,15 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_trtgw"]
-resource_name = "fly"
+[sub_resource type="Animation" id="Animation_7uxvh"]
+resource_name = "hover"
 length = 0.1
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Orientation/Body:blend_shapes/Wings Down")
-tracks/0/interp = 2
+tracks/0/path = NodePath(".:blend_shapes/Wings Down")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
@@ -72,51 +71,129 @@ tracks/0/keys = {
 "values": [-1.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ni7qj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4mtp"]
 _data = {
-&"RESET": SubResource("Animation_5foox"),
-&"fly": SubResource("Animation_trtgw")
+&"RESET": SubResource("Animation_vnpvw"),
+&"hover": SubResource("Animation_7uxvh")
 }
 
-[node name="Benson" type="CharacterBody3D" unique_id=193555425]
-collision_layer = 2
-script = ExtResource("1_u4qym")
+[sub_resource type="Animation" id="Animation_1et3q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0058847964, 0.72107565, -0.48513854)]
+}
 
-[node name="Orientation" type="Node3D" parent="." unique_id=578184492]
+[sub_resource type="Animation" id="Animation_fcb31"]
+resource_name = "upanddown"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0058847964, 0.72107565, -0.48513854), Vector3(0.0058847964, 0.66901934, -0.48513854)]
+}
 
-[node name="Body" type="MeshInstance3D" parent="Orientation" unique_id=1742493009]
-transform = Transform3D(-0.295, 0, -4.454376e-08, 0, 0.295, 0, 4.454376e-08, 0, -0.295, 0.010178909, 0.014, 0.036)
-mesh = SubResource("ArrayMesh_trtgw")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p8t2v"]
+_data = {
+&"RESET": SubResource("Animation_1et3q"),
+&"upanddown": SubResource("Animation_fcb31")
+}
+
+[node name="MainMenu" type="Node3D" unique_id=106731812]
+script = ExtResource("1_jyjuj")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=762099997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.7584348, 1.5833151)
+fov = 30.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1862359652]
+environment = SubResource("Environment_oq6nt")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1014298639]
+transform = Transform3D(-0.2849481, 0, 0.07635157, 0, 0.295, 0, -0.07635157, 0, -0.2849481, 0.0058847964, 0.72107565, -0.48513854)
+mesh = SubResource("ArrayMesh_oq6nt")
 "blend_shapes/Wings Down" = 0.0
 "blend_shapes/WIngs Up" = 0.0
 
-[node name="BodyCollider" type="CollisionShape3D" parent="." unique_id=833329893]
-transform = Transform3D(3.394002e-08, -1.2666585e-07, 1.0000001, 0.9989997, 0.044717923, -2.8241846e-08, -0.044717863, 0.9989996, 1.2805691e-07, 0.013175982, -0.0021349192, -0.010622483)
-shape = SubResource("CapsuleShape3D_81iw3")
+[node name="hoverer" type="AnimationPlayer" parent="Body" unique_id=1293638447]
+libraries/ = SubResource("AnimationLibrary_j4mtp")
+autoplay = &"hover"
 
-[node name="CameraArm" type="SpringArm3D" parent="." unique_id=53182570]
-transform = Transform3D(-1, 0, 8.7422784e-08, 0, 1, 0, -8.7422784e-08, 0, -1, 0.052703943, 0.09340754, -0.04397956)
-spring_length = 2.0
-script = ExtResource("2_81iw3")
-min_vert = -1.2217304763960306
-max_vert = 0.5235987755982988
+[node name="mover" type="AnimationPlayer" parent="Body" unique_id=727881262]
+libraries/ = SubResource("AnimationLibrary_p8t2v")
+autoplay = &"upanddown"
 
-[node name="Camera3D" type="Camera3D" parent="CameraArm" unique_id=889376277]
-transform = Transform3D(1, 8.258129e-09, 7.871712e-10, -8.258128e-09, 0.98199177, 0.18892407, 7.871641e-10, -0.18892407, 0.98199177, 0.03952786, 0.7038084, 2.1421719)
-fov = 69.0
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=296550489]
 
-[node name="Buzzer" type="AudioStreamPlayer3D" parent="." unique_id=1896265478]
-stream = ExtResource("3_8dec6")
-bus = &"Effects"
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=720664250]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 45
 
-[node name="DashSound" type="AudioStreamPlayer3D" parent="." unique_id=1241216160]
-stream = ExtResource("4_lu2wp")
-bus = &"Effects"
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=310030635]
+layout_mode = 2
 
-[node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=1407196455]
-stream = ExtResource("5_1qeby")
-volume_db = 12.651
-bus = &"Effects"
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/PanelContainer" unique_id=741436538]
+layout_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1355534102]
-libraries/ = SubResource("AnimationLibrary_ni7qj")
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/CenterContainer" unique_id=320679829]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Menu" type="VBoxContainer" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer" unique_id=899353044]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 350)
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=1074202693]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Bee Mine!"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=222714589]
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=945036167]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Start Game"
+
+[node name="Help" type="Button" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=2078818028]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "How To Play"
+
+[node name="Options" type="Button" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=472533002]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Options"
+
+[node name="Credits" type="Button" parent="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu" unique_id=1914044146]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Credits"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/StartGame" to="." method="_on_start_game_pressed"]
