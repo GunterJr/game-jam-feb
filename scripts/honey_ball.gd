@@ -5,7 +5,7 @@ enum Type {FLOATER, REGROWER}
 
 func _physics_process(delta: float) -> void:
 	if honey_type == Type.FLOATER:
-		position.y += .005
+		position.y += .05
 
 func _on_body_entered(body: Node3D) -> void:
 	body.refresh()

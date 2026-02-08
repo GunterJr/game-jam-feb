@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dyio6jn7ky8op"]
+
+[ext_resource type="Script" uid="uid://dnxn4cmldr1l" path="res://scripts/honey_ball_spawner.gd" id="1_v7vgj"]
+[ext_resource type="PackedScene" uid="uid://d3w30uoyca4fd" path="res://scenes/objects/honey-ball.tscn" id="2_1wr55"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_diwdw"]
+top_radius = 0.24
+bottom_radius = 0.755
+height = 0.685
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1wr55"]
+height = 0.65
+radius = 0.758
+
+[node name="HoneyBallSpawner" type="StaticBody3D" unique_id=1245691608]
+script = ExtResource("1_v7vgj")
+honey_ball = ExtResource("2_1wr55")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1497294165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34573483, 0)
+mesh = SubResource("CylinderMesh_diwdw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=460168872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3332145, 0)
+shape = SubResource("CylinderShape3D_1wr55")

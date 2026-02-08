@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="3_fd2pj"]
 [ext_resource type="PackedScene" uid="uid://bdl5r6jfrxnn4" path="res://scenes/misc/killer.tscn" id="5_tpxpp"]
 [ext_resource type="PackedScene" uid="uid://c7rwuc6ols6vy" path="res://scenes/objects/actor-spawn.tscn" id="6_1vv31"]
+[ext_resource type="PackedScene" uid="uid://dyio6jn7ky8op" path="res://scenes/objects/honey-ball-spawner.tscn" id="6_ysv1u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_et7hr"]
 
@@ -682,3 +683,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.171366, 15.500004, 5.73618
 
 [node name="Killer" parent="." unique_id=785259735 instance=ExtResource("5_tpxpp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4779052, 0)
+
+[node name="HoneyBallSpawner" parent="." unique_id=1245691608 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53858495, -1.5, 8.057344)
+
+[node name="HoneyBallSpawner2" parent="." unique_id=1963929867 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81924, -1.499999, 13.918827)
+
+[node name="HoneyBallSpawner3" parent="." unique_id=1190235653 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.718701, -1.5, 15.921003)
+
+[node name="HoneyBallSpawner4" parent="." unique_id=845756449 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.04701, -1.4999971, 28.28233)
+
+[node name="HoneyBallSpawner5" parent="." unique_id=1292601420 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0177917, -1.5, 20.611359)
+
+[node name="HoneyBallSpawner6" parent="." unique_id=61117747 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8127337, -1.500001, 35.53146)
+
+[node name="HoneyBallSpawner7" parent="." unique_id=1550208238 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.152834, -1.500001, 27.47329)
+
+[node name="HoneyBallSpawner8" parent="." unique_id=1559846265 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.048211, -1.4999995, 6.0874166)
+
+[node name="HoneyBallSpawner9" parent="." unique_id=1760002104 instance=ExtResource("6_ysv1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.731197, -1.500001, 13.239365)
