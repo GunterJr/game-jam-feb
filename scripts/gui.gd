@@ -7,7 +7,8 @@ extends Control
 @onready var game_over: Label = $CenterContainer/GameOver
 @onready var letters_label: Label = $MarginContainer2/VBoxContainer/LettersLabel
 @onready var score_label: Label = $MarginContainer2/VBoxContainer/ScoreLabel
-@onready var letter: RichTextLabel = $MarginContainer3/PanelContainer/LetterLabel
+@onready var letter: RichTextLabel = $MarginContainer3/LetterSprite/LetterLabel
+@onready var letter_sprite: AnimatedSprite2D = $MarginContainer3/LetterSprite
 
 var letters_delivered : int = 0;
 var num_letters : int = 0:
@@ -15,10 +16,30 @@ var num_letters : int = 0:
 		num_letters = input
 		letters_label.text = "Letters Delivered: " + str(letters_delivered)
 		letter_label(input)
-		letter.text = GameManager.held_letters.front().contents
-		letter.get_parent_control().visible = (num_letters != 0)
+		if num_letters >= 1: show_letter()
+		else: close_letter()
 		
-		
+func show_letter():
+	if num_letters > 1:
+		letter.text = GameManager.held_letters.back().contents
+		return
+	letter_sprite.visible = true
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(letter_sprite, "position", Vector2(-84.0, 0.0), 0.5)
+	tween.tween_callback(letter_sprite.play.bind("open"))
+	await letter_sprite.animation_finished
+	letter.text = GameManager.held_letters.back().contents
+
+func close_letter():
+	letter.text = ""
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_callback(letter_sprite.play.bind("close"))
+	await letter_sprite.animation_finished
+	tween = get_tree().create_tween()
+	tween.tween_property(letter_sprite, "position", Vector2(450.0, 0.0), 0.5)
+	await tween.finished
+	letter_sprite.visible = false
+
 func update_score(new: int):
 	score_label.text = "Score: " + str(new)
 
