@@ -28,6 +28,7 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
 @onready var dash_sound: AudioStreamPlayer3D = $DashSound
 @onready var death_sound: AudioStreamPlayer3D = $DeathSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 ## Set Benson's position to the listed spawnpoint.
 func respawn() -> void:
@@ -83,9 +84,12 @@ func _physics_process(delta: float) -> void:
 		current_flight_time = 0
 		buzzer.stop()
 		flying = false
+		animation_player.play("RESET")
 	if Input.is_action_just_released("jump"):
 		flying = true
-	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
+		animation_player.play("RESET")
+	if Input.is_action_pressed("jump") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
+		if !animation_player.is_playing(): animation_player.play("fly")
 		if not buzzer.playing:
 			buzzer.play()
 		if(velocity.y < 0):
