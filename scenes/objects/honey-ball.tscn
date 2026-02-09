@@ -10,6 +10,7 @@ metallic = 0.1
 radius = 0.3
 
 [node name="HoneyBall" type="Area3D" unique_id=726348483]
+visible = false
 collision_mask = 2
 script = ExtResource("1_u0cyn")
 
@@ -19,6 +20,7 @@ material = SubResource("StandardMaterial3D_mm01i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1166648590]
 shape = SubResource("SphereShape3D_wd4cw")
+disabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1551669417]
 wait_time = 5.0

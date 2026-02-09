@@ -5,15 +5,50 @@ extends Control
 @onready var flight_bar: ProgressBar = $MarginContainer/VBoxContainer/FlightBar
 @onready var patience_left: Label = $MarginContainer/VBoxContainer/PatienceLeft
 @onready var game_over: Label = $CenterContainer/GameOver
-@onready var score_label: Label = $MarginContainer2/ScoreLabel
+@onready var letters_label: Label = $MarginContainer2/VBoxContainer/LettersLabel
+@onready var score_label: Label = $MarginContainer2/VBoxContainer/ScoreLabel
+@onready var letter: RichTextLabel = $MarginContainer3/LetterSprite/LetterLabel
+@onready var letter_sprite: AnimatedSprite2D = $MarginContainer3/LetterSprite
 
-## Really, this should not be stored in a GUI singleton, it probably should be 
-## some other autoload for game state. Oh well.
-var has_letter : bool = false:
+# why is everything in this setter? why are there a gazillion references?
+# this script is too monolithic
+
+var letters_delivered : int = 0;
+var num_letters : int = 0:
 	set(input):
-		has_letter = input
-		score_label.text = "Letters Delivered: " + str(GameManager.score)
+		num_letters = input
+		letters_label.text = "Letters Delivered: " + str(letters_delivered)
 		letter_label(input)
+		if num_letters >= 1: show_letter()
+		else: close_letter()
+		
+func show_letter():
+	if num_letters > 1:
+		letter.text = GameManager.held_letters.back().contents
+		$open.play()
+		return
+	letter_sprite.visible = true
+	$open.play()
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(letter_sprite, "position", Vector2(-84.0, 0.0), 0.5)
+	tween.tween_callback(letter_sprite.play.bind("open"))
+	await letter_sprite.animation_finished
+	letter.text = GameManager.held_letters.back().contents
+
+func close_letter():
+	letter.text = ""
+	if GameManager.gaming:
+		$close.play()
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_callback(letter_sprite.play.bind("close"))
+	await letter_sprite.animation_finished
+	tween = get_tree().create_tween()
+	tween.tween_property(letter_sprite, "position", Vector2(450.0, 0.0), 0.5)
+	await tween.finished
+	letter_sprite.visible = false
+
+func update_score(new: int):
+	score_label.text = "Score: " + str(new)
 
 func update_patience(new: float):
 	new = roundf(new)
@@ -26,12 +61,13 @@ func update_flight(new: float):
 	flight_remaining.text = out
 	flight_bar.value = new
 	
-func letter_label(letter : bool) -> void:
+@warning_ignore("shadowed_variable") # ridiculous
+func letter_label(letter : int) -> void:
 	if letter:
-		letter_status.text = "Holding Letter!"
+		letter_status.text = "Holding Letter x" + str(letter)
 		letter_status.add_theme_color_override("font_color", Color(0.0, 0.808, 0.0, 1.0))
 	else:
-		letter_status.text = "No Letter"
+		letter_status.text = "No Letters!"
 		letter_status.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
 
 func flash_game_over():

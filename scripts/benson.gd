@@ -23,11 +23,13 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 # Optional
 @export var spawnpoint : Node3D
 
+# Children
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
 @onready var dash_sound: AudioStreamPlayer3D = $DashSound
 @onready var death_sound: AudioStreamPlayer3D = $DeathSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 ## Set Benson's position to the listed spawnpoint.
 func respawn() -> void:
@@ -36,21 +38,20 @@ func respawn() -> void:
 
 func die():
 	death_sound.play()
-	GameManager.gaming = false
-	GUI.flash_game_over()
 	visible = false
 	speed = 0
 	jump_velocity = 0
 	dash_velocity = 0
-	
+	GameManager.game_over()
 
 func _ready() -> void:
+	GUI.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	up_direction = Vector3.UP
 	respawn()
 	# TODO: this is not very smart... we wait to make sure all the spawnpoints
 	# for actors have initialized
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(10).timeout
 	GameManager.gaming = true
 	GameManager.new_route()
 
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		respawn()
 
-	if not is_on_floor() and !is_on_wall_only():
+	if not is_on_floor() and !is_on_wall_only(): # why? -connor
 		var gravity_strength := get_gravity().length()
 		velocity += -up_direction * gravity_strength * delta
 	
@@ -83,9 +84,12 @@ func _physics_process(delta: float) -> void:
 		current_flight_time = 0
 		buzzer.stop()
 		flying = false
+		animation_player.play("RESET")
 	if Input.is_action_just_released("jump"):
 		flying = true
-	if Input.is_action_pressed("ui_accept") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
+		animation_player.play("RESET")
+	if Input.is_action_pressed("jump") and !is_on_floor() and current_flight_time < flight_time and flying and velocity.y <= max_flight_speed:
+		if !animation_player.is_playing(): animation_player.play("fly")
 		if not buzzer.playing:
 			buzzer.play()
 		if(velocity.y < 0):
@@ -128,8 +132,11 @@ func _physics_process(delta: float) -> void:
 			velocity = -camera_basis.z * dash_velocity;
 			dash_sound.play()
 			current_flight_time += 0.4
-			
-	
+			# might be removed but thought it was cool -connor
+			var tween : Tween = get_tree().create_tween()
+			tween.tween_property($CameraArm/Camera3D, "fov", 75, .05)
+			tween.tween_property($CameraArm/Camera3D, "fov", 69, .1)
+
 	if is_on_floor() and up_direction == Vector3.UP:
 		velocity.x *= friction
 		velocity.z *= friction
@@ -142,6 +149,6 @@ func _physics_process(delta: float) -> void:
 	current_velocity = velocity
 
 ## "Refreshes" the players flight time. This method could techincally be placed
-## in any object that flys.
+## in any object that "flys".
 func refresh():
 	current_flight_time = 0

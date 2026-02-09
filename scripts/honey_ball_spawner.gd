@@ -7,13 +7,13 @@ extends StaticBody3D
 func _ready() -> void:
 	spawn()
 
-
+# just completely broken
 func spawn():
 	while spawning:
 		var new_ball = honey_ball.instantiate()
+		self.get_parent().add_child.call_deferred(new_ball)
+		new_ball.position = global_position
 		new_ball.honey_type = new_ball.Type.FLOATER
-		new_ball.position = self.position
-		get_tree().root.add_child.call_deferred(new_ball)
 		await get_tree().create_timer(randf_range(4, 7)).timeout
 		if new_ball:
 			new_ball.queue_free()

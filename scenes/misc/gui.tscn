@@ -2,6 +2,162 @@
 
 [ext_resource type="Theme" uid="uid://du4wweld30pxv" path="res://scenes/misc/gui_theme.tres" id="1_iox2t"]
 [ext_resource type="Script" uid="uid://dr2k4w3ora5y" path="res://scripts/gui.gd" id="1_yxipg"]
+[ext_resource type="Texture2D" uid="uid://c3aai3itcrlgl" path="res://textures/letter_gui.png" id="3_iox2t"]
+[ext_resource type="AudioStream" uid="uid://dqdmbcsjsyaeu" path="res://audio/fx/note_open.wav" id="4_0kumy"]
+[ext_resource type="AudioStream" uid="uid://dj7yy05fsltcf" path="res://audio/fx/note_close.wav" id="5_r5e58"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d31x"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(2160, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35dnv"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1920, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnw3h"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1680, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43b7q"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1440, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrdte"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1200, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thken"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(960, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg1k"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(720, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eg2b"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(480, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpuiy"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(240, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u8m1"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(0, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iox2t"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(0, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vapc1"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(240, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kumy"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(480, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5e58"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(720, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpsw6"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(960, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckvnh"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1200, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxkeb"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1440, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21n1t"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1680, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05drj"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(1920, 0, 240, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54m00"]
+atlas = ExtResource("3_iox2t")
+region = Rect2(2160, 0, 240, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d31x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d31x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35dnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnw3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43b7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrdte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thken")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eg2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpuiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u8m1")
+}],
+"loop": false,
+"name": &"close",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iox2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vapc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kumy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5e58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpsw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckvnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxkeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21n1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05drj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54m00")
+}],
+"loop": false,
+"name": &"open",
+"speed": 15.0
+}]
 
 [node name="GUI" type="Control" unique_id=901090881]
 layout_mode = 3
@@ -42,7 +198,7 @@ layout_mode = 2
 [node name="LetterStatus" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1735477788]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "No Letter!"
+text = "No Letters!"
 
 [node name="PatienceLeft" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1886113228]
 layout_mode = 2
@@ -75,6 +231,48 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer2" unique_id=1103084873]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=899749998]
 layout_mode = 2
-text = "Letters Delivered: 0"
+
+[node name="LettersLabel" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=1103084873]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=453951124]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1742698359]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 10
+
+[node name="LetterSprite" type="AnimatedSprite2D" parent="MarginContainer3" unique_id=1628114155]
+position = Vector2(433, 0)
+sprite_frames = SubResource("SpriteFrames_7d31x")
+animation = &"open"
+autoplay = "close"
+
+[node name="LetterLabel" type="RichTextLabel" parent="MarginContainer3/LetterSprite" unique_id=802845028]
+custom_minimum_size = Vector2(210, 300)
+offset_left = -105.0
+offset_top = -164.0
+offset_right = 105.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+scroll_active = false
+
+[node name="open" type="AudioStreamPlayer" parent="." unique_id=1810996058]
+stream = ExtResource("4_0kumy")
+bus = &"Effects"
+
+[node name="close" type="AudioStreamPlayer" parent="." unique_id=1298357231]
+stream = ExtResource("5_r5e58")
+bus = &"Effects"

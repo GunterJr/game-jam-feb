@@ -3,7 +3,13 @@ extends Area3D
 enum Type {FLOATER, REGROWER}
 @export var honey_type : Type
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	# Brute force fix of instatiation bug
+	await get_tree().create_timer(0.1).timeout
+	visible = true
+	$CollisionShape3D.disabled = false
+
+func _physics_process(_delta: float) -> void:
 	if honey_type == Type.FLOATER:
 		position.y += .05
 
