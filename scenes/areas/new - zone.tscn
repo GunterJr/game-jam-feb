@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_sw1u0"]
 [ext_resource type="PackedScene" uid="uid://c7rwuc6ols6vy" path="res://scenes/objects/actor-spawn.tscn" id="2_6o2de"]
 [ext_resource type="PackedScene" uid="uid://dyio6jn7ky8op" path="res://scenes/objects/honey-ball-spawner.tscn" id="3_u4nlr"]
+[ext_resource type="PackedScene" uid="uid://dr05f0076sqvp" path="res://scenes/actors/kid_bee.tscn" id="4_0y3bu"]
 [ext_resource type="Script" uid="uid://dqvrfdnr78vsk" path="res://scripts/killer.gd" id="4_nyxdc"]
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="5_apqwg"]
 
@@ -367,6 +368,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.336235, -3.3353093, -35.6
 
 [node name="HoneyBallSpawner8" parent="MainHall" unique_id=1713902584 instance=ExtResource("3_u4nlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.827663, 0.30210173, -33.526447)
+
+[node name="kid-bee" parent="MainHall" unique_id=1482737927 instance=ExtResource("4_0y3bu")]
+transform = Transform3D(0.29967365, 0, -0.9540418, 0, 1, 0, 0.9540418, 0, 0.29967365, -4.430012, 1.4100441, 4.072154)
+
+[node name="kid-bee2" parent="MainHall" unique_id=237495511 instance=ExtResource("4_0y3bu")]
+transform = Transform3D(0.9950625, 0, -0.09925023, 0, 1, 0, 0.09925023, 0, 0.9950625, -3.796212, 1.057911, 4.4125524)
+
+[node name="kid-bee3" parent="MainHall" unique_id=1346681513 instance=ExtResource("4_0y3bu")]
+transform = Transform3D(0.7499726, 0, -0.66146886, 0, 1, 0, 0.66146886, 0, 0.7499726, -4.1688333, 1.3879805, 4.460479)
 
 [node name="MainHallFloor" type="CSGCombiner3D" parent="." unique_id=2141556054]
 use_collision = true
