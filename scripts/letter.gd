@@ -14,11 +14,11 @@ func gen_contents() -> void:
 		1:
 			contents = "Dearest queen, this nectar has got me wondering if you will be a busy bee tonight?"
 		2:
-			contents = "My queen, I know you have seen me working around the pollen fields, why will you not talk to me? My wings buzz for you..."
+			contents = "My beloved queen. My little bee self was wondering if you would be open for a date. Because queen, you're the bee's knees."
 		3:
-			contents = "3"
+			contents = "Oh myeth queen. How my every waking moment is thy mind on you., would'th thy giveth me a chance'th?"
 		4:
-			contents ="4"
+			contents = "My queen, I know you have seen me working around the pollen fields, why will you not talk to me? My wings buzz for you..."
 		5:	
 			contents = "Dear queen,\nYour crown glistens in the amber light of the hive,\nand as your antennae sway in the wind like stalks of wheat,\nyour commanding gaze pierces through my heart."
 		_: 	contents = "My queen,\nHow did we get here?"

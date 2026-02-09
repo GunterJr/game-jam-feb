@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var howToPlaySheet: AnimatedSprite2D = $HowToPlaySheet
+@onready var creditsSheet: AnimatedSprite2D = $CreditsSheet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +23,7 @@ func _on_exit_pressed() -> void:
 
 func _on_help_pressed() -> void:
 	howToPlaySheet.visible = !howToPlaySheet.visible
+
+
+func _on_credits_pressed() -> void:
+	creditsSheet.visible = !creditsSheet.visible

@@ -429,16 +429,6 @@ transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-0
 size = Vector3(21, 1, 26)
 material = SubResource("StandardMaterial3D_u4nlr")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="UpperHallFloors" unique_id=547641903]
-transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894321e-09, -2.6554273e-08, 0.8660253, -0.5, -1.36112845e-08, 0.49999994, 0.86602545, -11.397778, -4.835314, -10.551109)
-size = Vector3(10, 1, 26)
-material = SubResource("StandardMaterial3D_u4nlr")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="UpperHallFloors" unique_id=1854708900]
-transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894322e-09, -2.9802319e-08, 0.9999999, 2.9802322e-08, 1.4894175e-09, -2.9802322e-08, 1, -11.397778, -11.835314, 9.948891)
-size = Vector3(14, 1, 19)
-material = SubResource("StandardMaterial3D_u4nlr")
-
 [node name="CSGBox3D11" type="CSGBox3D" parent="UpperHallFloors" unique_id=371391438]
 transform = Transform3D(0.9999999, -1.4901161e-08, -1.4894326e-09, -2.9802322e-08, 1, 1.1313339e-08, 1.4894184e-09, -1.1313342e-08, 1.0000001, 34.665455, 2.1646857, 0.4488907)
 size = Vector3(26, 1, 14)
@@ -507,14 +497,9 @@ transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.707
 size = Vector3(2, 14, 58)
 material = SubResource("StandardMaterial3D_nyxdc")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="HallWalls" unique_id=114807478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, -3, 8)
-size = Vector3(14, 1, 23)
-material = SubResource("StandardMaterial3D_nyxdc")
-
 [node name="CSGBox3D8" type="CSGBox3D" parent="HallWalls" unique_id=1054432332]
-transform = Transform3D(1, 0, 0, 0, 0.7071067, -0.70710677, 0, 0.70710677, 0.7071067, -11.5, 5, -11)
-size = Vector3(14, 1, 23)
+transform = Transform3D(1, 0, 0, 0, -2.9802322e-08, -0.9999999, 0, 0.9999999, -2.9802322e-08, -11.5, 3.0000002, -21)
+size = Vector3(14, 1, 19)
 material = SubResource("StandardMaterial3D_nyxdc")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="HallWalls" unique_id=778517214]
