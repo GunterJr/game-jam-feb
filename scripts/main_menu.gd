@@ -13,6 +13,7 @@ func _ready() -> void:
 func _on_start_game_pressed() -> void:
 	GameManager.set_script(load("res://scripts/game_manager.gd"))
 	get_tree().change_scene_to_file("res://scenes/areas/new - zone.tscn")
+	GUI.game_over.visible = false # avoid bug when starting game quickly
 
 
 func _on_exit_pressed() -> void:
