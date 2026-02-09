@@ -71,7 +71,7 @@ func letter_label(letter : int) -> void:
 		letter_status.add_theme_color_override("font_color", Color(1.0, 0.0, 0.0, 1.0))
 
 func flash_game_over():
-	for i : int in 5:
+	for i : int in 3:
 		await get_tree().create_timer(0.5).timeout
 		game_over.visible = true
 		await get_tree().create_timer(0.5).timeout
