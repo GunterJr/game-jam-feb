@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var howToPlaySheet: AnimatedSprite2D = $HowToPlaySheet
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GUI.visible = false
@@ -16,3 +18,7 @@ func _on_exit_pressed() -> void:
 	%AudioStreamPlayer.play()
 	await %AudioStreamPlayer.finished
 	get_tree().quit()
+
+
+func _on_help_pressed() -> void:
+	howToPlaySheet.visible = !howToPlaySheet.visible

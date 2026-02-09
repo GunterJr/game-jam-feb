@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8ncji6qyq7np" path="res://scripts/main_menu.gd" id="1_jyjuj"]
 [ext_resource type="Texture2D" uid="uid://bv8wjxnj2i3ox" path="res://models/benson_Low_Poly_Bee_Base_color.webp" id="2_h5rob"]
 [ext_resource type="AudioStream" uid="uid://ja5hi2vq3iy0" path="res://audio/fx/byebye.wav" id="3_oq6nt"]
+[ext_resource type="Texture2D" uid="uid://dhd87jft1jxig" path="res://textures/howtoplaysheet.PNG" id="4_vnpvw"]
 
 [sub_resource type="Environment" id="Environment_oq6nt"]
 background_mode = 1
@@ -115,6 +116,28 @@ _data = {
 &"upanddown": SubResource("Animation_fcb31")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uxvh"]
+atlas = ExtResource("4_vnpvw")
+region = Rect2(0, 0, 2360, 1640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4mtp"]
+atlas = ExtResource("4_vnpvw")
+region = Rect2(2360, 0, 2360, 1640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1et3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4mtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MainMenu" type="Node3D" unique_id=106731812]
 script = ExtResource("1_jyjuj")
 
@@ -208,5 +231,15 @@ unique_name_in_owner = true
 stream = ExtResource("3_oq6nt")
 pitch_scale = 1.4
 
+[node name="HowToPlaySheet" type="AnimatedSprite2D" parent="." unique_id=1388198831]
+visible = false
+position = Vector2(513, 68)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_1et3q")
+autoplay = "default"
+frame_progress = 0.8446879
+centered = false
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/CenterContainer/MarginContainer/Menu/Exit" to="." method="_on_exit_pressed"]
