@@ -3,8 +3,7 @@ extends Node
 # TODO: this will handle logic for spawn points, timers, anything game related
 
 ## Time remaining to deliver the current letter in seconds. 
-## Rate of change increases as the game progresses.
-var patience : float = 30
+var patience : float = 40
 var score : int = 0
 ## Letters that Benson currently has in his inventory to be delivered. 
 var held_letters : Array[Letter]

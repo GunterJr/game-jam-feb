@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7rwuc6ols6vy" path="res://scenes/objects/actor-spawn.tscn" id="2_6o2de"]
 [ext_resource type="PackedScene" uid="uid://dyio6jn7ky8op" path="res://scenes/objects/honey-ball-spawner.tscn" id="3_u4nlr"]
 [ext_resource type="Script" uid="uid://dqvrfdnr78vsk" path="res://scripts/killer.gd" id="4_nyxdc"]
+[ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="5_apqwg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sw1u0"]
 
@@ -748,6 +749,12 @@ shape = SubResource("BoxShape3D_qxe34")
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="Killer2" unique_id=1220459939]
 transform = Transform3D(-4.371139e-08, -0.25881904, -0.9659258, 0, 0.96592593, -0.25881907, 1.0000001, -1.13133405e-08, -4.2221963e-08, -13.5, -3.3951037, 62.017036)
 shape = SubResource("BoxShape3D_qxe34")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1898263687]
+stream = ExtResource("5_apqwg")
+volume_db = -10.976
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Killer" to="Killer" method="_on_body_entered"]
 [connection signal="body_entered" from="Killer2" to="Killer2" method="_on_body_entered"]
