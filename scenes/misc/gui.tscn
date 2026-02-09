@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://du4wweld30pxv" path="res://scenes/misc/gui_theme.tres" id="1_iox2t"]
 [ext_resource type="Script" uid="uid://dr2k4w3ora5y" path="res://scripts/gui.gd" id="1_yxipg"]
 [ext_resource type="Texture2D" uid="uid://c3aai3itcrlgl" path="res://textures/letter_gui.png" id="3_iox2t"]
+[ext_resource type="AudioStream" uid="uid://dqdmbcsjsyaeu" path="res://audio/fx/note_open.wav" id="4_0kumy"]
+[ext_resource type="AudioStream" uid="uid://dj7yy05fsltcf" path="res://audio/fx/note_close.wav" id="5_r5e58"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7d31x"]
 atlas = ExtResource("3_iox2t")
@@ -266,3 +268,11 @@ offset_right = 105.0
 offset_bottom = 136.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 scroll_active = false
+
+[node name="open" type="AudioStreamPlayer" parent="." unique_id=1810996058]
+stream = ExtResource("4_0kumy")
+bus = &"Effects"
+
+[node name="close" type="AudioStreamPlayer" parent="." unique_id=1298357231]
+stream = ExtResource("5_r5e58")
+bus = &"Effects"
