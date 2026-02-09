@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lbclfoyfhgm1" path="res://scripts/benson.gd" id="1_u4qym"]
 [ext_resource type="Texture2D" uid="uid://bv8wjxnj2i3ox" path="res://models/benson_Low_Poly_Bee_Base_color.webp" id="2_5foox"]
-[ext_resource type="Script" path="res://scripts/camera_arm.gd" id="2_81iw3"]
+[ext_resource type="Script" uid="uid://ce4hm7kncdtus" path="res://scripts/camera_arm.gd" id="2_81iw3"]
 [ext_resource type="AudioStream" uid="uid://dyfcf0xpn4rmc" path="res://audio/fx/bee_buzz.ogg" id="3_8dec6"]
 [ext_resource type="AudioStream" uid="uid://dby8oy8c8i7xv" path="res://audio/fx/dash.wav" id="4_lu2wp"]
 [ext_resource type="AudioStream" uid="uid://bdikp5ijtkgrf" path="res://audio/fx/fart.wav" id="5_1qeby"]

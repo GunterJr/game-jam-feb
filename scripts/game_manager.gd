@@ -51,9 +51,9 @@ func add_spawn(spawnpoint : Node3D):
 func game_over():
 	gaming = false
 	GUI.flash_game_over()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(3).timeout
 	reset()
-	get_tree().change_scene_to_file("res://scenes/areas/main-menu.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://scenes/areas/main-menu.tscn")
 
 ## Spawns a queen and a few suitors, removing the old ones. This crashes if 
 ## there are no spawnpoints in the arrays!
