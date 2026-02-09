@@ -1,6 +1,8 @@
 extends Node
 
-# TODO: this will handle logic for spawn points, timers, anything game related
+# TODO: this should not be an auto load, it should be a class. this entire
+# implementation is a nightmare and needs to be canned if this project is to
+# continue.
 
 ## Time remaining to deliver the current letter in seconds. 
 var patience : float = 40
@@ -19,7 +21,7 @@ var curr_suitors : Array[StaticBody3D]
 @export var queen_template : PackedScene = preload("res://scenes/actors/queen-bee.tscn")
 @export var suitor_template : PackedScene = preload("res://scenes/actors/suitor-bee.tscn")
 ## Amount of suitors to spawn on a new route.
-@export var suitors_to_spawn : int = 5
+@export var suitors_to_spawn : int = 7
 ## Amount of patience delivering letters awards the player with.
 @export var patience_gained : float = 30.0
 
@@ -59,8 +61,8 @@ func game_over():
 ## there are no spawnpoints in the arrays!
 func new_route():
 	if not gaming: return
-	if queen_spawns.size() == 0:
-		print("Fatal: There are no available queen spawns. Cancelling gameloop.")
+	if queen_spawns.size() <= 2:
+		print("Fatal: There are too few actor spawns. Cancelling gameloop.")
 		gaming = false
 		return
 	print("generating new route")
@@ -79,7 +81,7 @@ func new_route():
 		fresh_spawn = queen_spawns.pick_random()
 	fresh_spawn.occupied = true
 	curr_queen.position = fresh_spawn.position
-	print("made queen at ", curr_queen.position, curr_queen.get_parent())
+	print("made queen at ", curr_queen.position)
 	
 	for suitor in curr_suitors:
 		suitor.queue_free()
@@ -93,7 +95,8 @@ func new_route():
 			print("occupied, rerolling")
 			fresh_spawn = queen_spawns.pick_random()
 		fresh_spawn.occupied = true
-		# FIXME: made this the queen array so they both can yuse it
+		# FIXME: made this the queen array so they both can use it
+		# in an ideal world we inherit from a base spawner class. Oh well!
 		new.position = fresh_spawn.position
 		print("made suitor at ", new.position)
 

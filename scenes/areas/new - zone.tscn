@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dyio6jn7ky8op" path="res://scenes/objects/honey-ball-spawner.tscn" id="3_u4nlr"]
 [ext_resource type="PackedScene" uid="uid://dr05f0076sqvp" path="res://scenes/actors/kid_bee.tscn" id="4_0y3bu"]
 [ext_resource type="Script" uid="uid://dqvrfdnr78vsk" path="res://scripts/killer.gd" id="4_nyxdc"]
+[ext_resource type="PackedScene" uid="uid://ccwcob1x8s3ef" path="res://scenes/actors/baby-bee.tscn" id="5_6t7op"]
 [ext_resource type="AudioStream" uid="uid://5kurmmh0hefd" path="res://audio/music/music.ogg" id="5_apqwg"]
+[ext_resource type="PackedScene" uid="uid://bd5r7222x2vpj" path="res://scenes/objects/auditor_area.tscn" id="7_omnd6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sw1u0"]
 
@@ -17,10 +19,19 @@ background_mode = 2
 background_energy_multiplier = 2.0
 sky = SubResource("Sky_et7hr")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_omnd6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6t7op"]
+noise = SubResource("FastNoiseLite_omnd6")
+as_normal_map = true
+bump_strength = 2.3
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sw1u0"]
 diffuse_mode = 3
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.813, 0.33999997, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_6t7op")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4nlr"]
 shading_mode = 0
@@ -28,9 +39,18 @@ diffuse_mode = 3
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.52, 0.27733335, 0, 1)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6t7op"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qybau"]
+noise = SubResource("FastNoiseLite_6t7op")
+as_normal_map = true
+bump_strength = 2.8
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyxdc"]
 diffuse_mode = 3
 albedo_color = Color(1, 0.90500003, 0.43, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_qybau")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ij4p6"]
 
@@ -70,6 +90,15 @@ size = Vector3(16, 1, 19)
 [node name="NewZone" type="Node3D" unique_id=1304043132]
 
 [node name="Benson" parent="." unique_id=193555425 instance=ExtResource("1_sw1u0")]
+speed = 5.0
+flight_speed = 10.0
+friction = 0.94
+air_friction = 0.97
+jump_velocity = 4.5
+flight_velocity = 0.5
+flight_time = 0.8
+max_flight_speed = 4.0
+dash_velocity = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1568133923]
 environment = SubResource("Environment_6o2de")
@@ -632,6 +661,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 5.5, -0.5)
 size = Vector3(3, 14, 20)
 material = SubResource("StandardMaterial3D_nyxdc")
 
+[node name="BabyBee" parent="HallWalls" unique_id=1400214974 instance=ExtResource("5_6t7op")]
+transform = Transform3D(-0.870158, 0, 0.49277285, 0, 1, 0, -0.49277285, 0, -0.870158, 0.9179541, 0.25066406, -0.68491256)
+
+[node name="BabyBee2" parent="HallWalls" unique_id=389522441 instance=ExtResource("5_6t7op")]
+transform = Transform3D(-0.515083, 0, -0.8571403, 0, 1, 0, 0.8571403, 0, -0.515083, -1.189506, 0.25695568, -0.59345865)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=809376225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 18, -6)
 use_collision = true
@@ -750,6 +785,21 @@ stream = ExtResource("5_apqwg")
 volume_db = -10.976
 autoplay = true
 bus = &"Music"
+
+[node name="auditor-area" parent="." unique_id=1970136304 instance=ExtResource("7_omnd6")]
+transform = Transform3D(-0.5640018, 0, 0.8257736, 0, 1, 0, -0.8257736, 0, -0.5640018, 0.4408341, -0.22850114, -0.9699198)
+
+[node name="auditor-area2" parent="." unique_id=1059946769 instance=ExtResource("7_omnd6")]
+transform = Transform3D(0.13395151, 0, -0.9909879, 0, 1, 0, 0.9909879, 0, 0.13395151, -0.8474281, -0.22220945, -0.13291061)
+
+[node name="BabyBee" parent="." unique_id=213776519 instance=ExtResource("5_6t7op")]
+transform = Transform3D(0.7857922, 0, -0.61849064, 0, 1, 0, 0.61849064, 0, 0.7857922, -1.1758299, 0.71300286, 0.33790648)
+
+[node name="kid-bee" parent="." unique_id=315984328 instance=ExtResource("4_0y3bu")]
+transform = Transform3D(0.5933065, 0, -0.80497664, 0, 1, 0, 0.80497664, 0, 0.5933065, -0.84988517, 0.09626573, 0.9662359)
+
+[node name="kid-bee2" parent="." unique_id=80411650 instance=ExtResource("4_0y3bu")]
+transform = Transform3D(-0.71380067, 0, 0.7003489, 0, 1, 0, -0.7003489, 0, -0.71380067, 1.2930541, -0.015527129, -0.09077597)
 
 [connection signal="body_entered" from="Killer" to="Killer" method="_on_body_entered"]
 [connection signal="body_entered" from="Killer2" to="Killer2" method="_on_body_entered"]

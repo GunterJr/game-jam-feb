@@ -10,6 +10,9 @@ extends Control
 @onready var letter: RichTextLabel = $MarginContainer3/LetterSprite/LetterLabel
 @onready var letter_sprite: AnimatedSprite2D = $MarginContainer3/LetterSprite
 
+# why is everything in this setter? why are there a gazillion references?
+# this script is too monolithic
+
 var letters_delivered : int = 0;
 var num_letters : int = 0:
 	set(input):
@@ -58,6 +61,7 @@ func update_flight(new: float):
 	flight_remaining.text = out
 	flight_bar.value = new
 	
+@warning_ignore("shadowed_variable") # ridiculous
 func letter_label(letter : int) -> void:
 	if letter:
 		letter_status.text = "Holding Letter x" + str(letter)

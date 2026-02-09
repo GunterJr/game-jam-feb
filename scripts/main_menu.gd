@@ -7,7 +7,7 @@ extends Node3D
 func _ready() -> void:
 	GUI.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	GameManager.set_script(null)
+	GameManager.set_script(null) # profoundly stupid
 
 ## Starts the game.
 func _on_start_game_pressed() -> void:

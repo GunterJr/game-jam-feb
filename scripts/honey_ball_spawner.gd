@@ -7,7 +7,7 @@ extends StaticBody3D
 func _ready() -> void:
 	spawn()
 
-
+# just completely broken
 func spawn():
 	while spawning:
 		var new_ball = honey_ball.instantiate()

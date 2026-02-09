@@ -23,6 +23,7 @@ var current_velocity : Vector3 = Vector3(0, 0, 0)
 # Optional
 @export var spawnpoint : Node3D
 
+# Children
 @onready var body: Node3D = $Orientation
 @onready var camarm : SpringArm3D = $CameraArm
 @onready var buzzer: AudioStreamPlayer3D = $Buzzer
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		respawn()
 
-	if not is_on_floor() and !is_on_wall_only():
+	if not is_on_floor() and !is_on_wall_only(): # why? -connor
 		var gravity_strength := get_gravity().length()
 		velocity += -up_direction * gravity_strength * delta
 	
