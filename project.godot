@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://cjbjljfduvch1"
 GUI="*uid://368t47su1g8u"
 GameManager="*uid://cycqao4smfmhs"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 forward={

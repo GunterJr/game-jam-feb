@@ -41,6 +41,7 @@ metadata/extras = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcenm"]
 resource_name = "Crown"
+cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.9063318, 0.9023356, 0.36104107, 1)
 emission_enabled = true
@@ -208,7 +209,7 @@ mesh = SubResource("ArrayMesh_ro7bq")
 "blend_shapes/WIngs Up" = 0.0
 
 [node name="Crown" type="MeshInstance3D" parent="Low Poly Bee" unique_id=1887654848]
-transform = Transform3D(-8.759086e-07, -20.038252, 0.093097016, 1.5128618e-06, 0.093097016, 20.038252, -20.038464, 8.829281e-07, 1.5087766e-06, 0.004456099, 0.32184964, -0.5069467)
+transform = Transform3D(-8.759086e-07, -20.038252, 0.093097016, 1.5128618e-06, 0.093097016, 20.038252, -20.038464, 8.829281e-07, 1.5087766e-06, -0.005559194, 0.2327223, -0.5069467)
 mesh = SubResource("ArrayMesh_5bm6n")
 
 [node name="Honey Staff" type="MeshInstance3D" parent="Low Poly Bee" unique_id=204197291]
@@ -241,9 +242,10 @@ bus = &"Effects"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=669213345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.051909, 0)
-pixel_size = 0.05
+pixel_size = 0.007
 billboard = 1
 no_depth_test = true
+fixed_size = true
 texture_filter = 0
 texture = ExtResource("8_62n52")
 

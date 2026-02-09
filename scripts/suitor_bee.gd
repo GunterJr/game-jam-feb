@@ -3,6 +3,7 @@ extends StaticBody3D
 @onready var voice: Label3D = $Voice
 @onready var collect_trigger: Area3D = $CollectTrigger
 @onready var talker: AudioStreamPlayer3D = $Talker
+@export var accessories : Array[MeshInstance3D]
 ## TODO: These are hardcoded in for now, though if we have time we ought to
 ##
 var comments : Array[String] = [
@@ -15,6 +16,7 @@ var comments : Array[String] = [
 # Called when the node enters the scene tree for the first t  ime.
 func _ready() -> void:
 	voice.text = ""
+	accessories.pick_random().visible = true
 	
 ## Sets the Voice label to the phrase, then clears it after 5s.
 func speak(phrase : String):
