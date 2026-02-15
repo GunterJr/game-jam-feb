@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://cjbjljfduvch1"
 
 [autoload]
 
-GUI="*uid://368t47su1g8u"
-GameManager="*uid://cycqao4smfmhs"
+GUI="uid://368t47su1g8u"
+GameManager="uid://cycqao4smfmhs"
 
 [display]
 

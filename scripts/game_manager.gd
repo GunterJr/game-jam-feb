@@ -28,7 +28,7 @@ var curr_suitors : Array[StaticBody3D]
 var queen_spawns : Array[Node3D]
 var suitor_spawns : Array[Node3D] # not used
 
-func reset():
+func reset(): # shitty fart
 	if curr_queen:
 		curr_queen.queue_free()
 	for suitor in curr_suitors:
@@ -109,7 +109,7 @@ func cash_out():
 	GUI.letters_delivered += GameManager.held_letters.size()
 	GUI.num_letters = 0
 	held_letters.clear()
-	
+
 func _process(delta: float) -> void:
 	if not gaming: return
 	patience -= delta

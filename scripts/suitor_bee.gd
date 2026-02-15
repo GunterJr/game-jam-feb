@@ -4,6 +4,11 @@ extends StaticBody3D
 @onready var collect_trigger: Area3D = $CollectTrigger
 @onready var talker: AudioStreamPlayer3D = $Talker
 @export var accessories : Array[MeshInstance3D]
+
+## Emitted when a letter has been constructed and given to the player by the
+## suitor. Contains the given [Letter] in the [param letter] argument.
+signal shipped_letter(letter : Letter)
+
 ## TODO: These are hardcoded in for now, though if we have time we ought to
 ##
 var comments : Array[String] = [
@@ -35,9 +40,11 @@ func on_player_enter(_body: Node3D) -> void:
 	var new_letter : Letter = Letter.new()
 	new_letter.quality = randi_range(0, 5)
 	new_letter.gen_contents()
-	GameManager.held_letters.append(new_letter)
-	GUI.num_letters += 1
 	var phrase : String = comments[randi_range(0, comments.size() - 1)]
+	
+	shipped_letter.emit(new_letter)
+	GameManager.held_letters.append(new_letter) # problematic
+	GUI.num_letters += 1 # problematic
 	# TODO: scrolling text
 	$CollectTrigger/CollisionShape3D.set_deferred("disabled", true)
 	speak(phrase)
