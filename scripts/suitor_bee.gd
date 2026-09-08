@@ -24,7 +24,7 @@ func _ready() -> void:
 	accessories.pick_random().visible = true
 	
 ## Sets the Voice label to the phrase, then clears it after 5s.
-func speak(phrase : String):
+func speak(phrase : String) -> void:
 	voice.text = phrase
 	# Play cute noises
 	for i : int in 5:

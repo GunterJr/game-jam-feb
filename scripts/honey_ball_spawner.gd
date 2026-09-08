@@ -8,9 +8,9 @@ func _ready() -> void:
 	spawn()
 
 # just completely broken
-func spawn():
+func spawn() -> void:
 	while spawning:
-		var new_ball = honey_ball.instantiate()
+		var new_ball : Area3D = honey_ball.instantiate()
 		self.get_parent().add_child.call_deferred(new_ball)
 		new_ball.position = global_position
 		new_ball.honey_type = new_ball.Type.FLOATER
