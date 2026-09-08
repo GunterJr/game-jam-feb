@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b3lnfnn3odxmx" path="res://scenes/actors/benson.tscn" id="1_0kmkr"]
 [ext_resource type="PackedScene" uid="uid://d3w30uoyca4fd" path="res://scenes/objects/honey-ball.tscn" id="3_18mwh"]
 [ext_resource type="PackedScene" uid="uid://c6dlgb1usn7cx" path="res://scenes/objects/player-spawn.tscn" id="3_64h5n"]
+[ext_resource type="PackedScene" uid="uid://368t47su1g8u" path="res://scenes/misc/gui.tscn" id="4_64h5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5hakr"]
 size = Vector3(3, 1, 3)
@@ -122,3 +123,5 @@ honey_type = 1
 
 [node name="Spawnpoint" parent="." unique_id=71272684 instance=ExtResource("3_64h5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9007504, 0.09811757, -1.4054432)
+
+[node name="GUI" parent="." unique_id=901090881 instance=ExtResource("4_64h5n")]

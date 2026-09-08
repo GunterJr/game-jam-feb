@@ -11,6 +11,11 @@ extends CharacterBody3D
 @export var max_flight_speed: float = 4
 
 @export var dash_velocity: float = 10
+
+# Signals
+signal flight_time_changed
+signal died
+
 var flying : bool = false
 var current_flight_time: float = 0:
 	set(val):
@@ -18,6 +23,7 @@ var current_flight_time: float = 0:
 		current_flight_time = min(current_flight_time, flight_time)
 		## TODO: sponge
 		# GUI.update_flight(current_flight_time)
+		flight_time_changed.emit()
 		
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
@@ -37,7 +43,7 @@ func respawn() -> void:
 	if spawnpoint:
 		position = spawnpoint.position
 
-func die():
+func die() -> void:
 	death_sound.play()
 	visible = false
 	speed = 0
@@ -45,10 +51,9 @@ func die():
 	dash_velocity = 0
 	## TODO: sponge
 	# GameManager.game_over()
+	died.emit()
 
 func _ready() -> void:
-	
-	# GUI.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	up_direction = Vector3.UP
 	respawn()
@@ -62,13 +67,12 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = current_velocity
 	
-	# Add the gravity.
-
 	if Input.is_action_just_pressed("reset"):
 		respawn()
 
-	if not is_on_floor() and !is_on_wall_only(): # why? -connor
-		var gravity_strength := get_gravity().length()
+	# Add the gravity.
+	if not is_on_floor():
+		var gravity_strength : float = get_gravity().length()
 		velocity += -up_direction * gravity_strength * delta
 	
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -108,17 +112,17 @@ func _physics_process(delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		input_vector = input_vector.normalized()
 		
-		var camera_basis = camarm.global_transform.basis
+		var camera_basis : Basis = camarm.global_transform.basis
 		
-		var forward = -camera_basis.z
+		var forward : Vector3 = -camera_basis.z
 		forward.y = 0
 		forward = forward.normalized()
 		
-		var right = camera_basis.x
+		var right : Vector3 = camera_basis.x
 		right.y = 0
 		right = right.normalized()
 		
-		var move_direction = (input_vector.x * right + input_vector.y * forward).normalized()
+		var move_direction : Vector3 = (input_vector.x * right + input_vector.y * forward).normalized()
 		
 		if is_on_floor() and up_direction == Vector3.UP:
 			velocity.x += move_direction.x * speed * delta
@@ -127,7 +131,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x += move_direction.x * flight_speed * delta
 			velocity.z += move_direction.z * flight_speed * delta
 		
-		var target_angle := Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
+		var target_angle : float = Vector3.BACK.signed_angle_to(move_direction, Vector3.UP)
 		body.global_rotation.y = lerp_angle(target_angle, body.global_rotation.y, 0.6)
 		
 		#handle dash
@@ -153,5 +157,5 @@ func _physics_process(delta: float) -> void:
 
 ## "Refreshes" the players flight time. This method could techincally be placed
 ## in any object that "flys".
-func refresh():
+func refresh() -> void:
 	current_flight_time = 0

@@ -24,7 +24,8 @@ var num_letters : int = 0:
 		
 func show_letter():
 	if num_letters > 1:
-		letter.text = GameManager.held_letters.back().contents
+		# TODO: sponge
+		# letter.text = GameManager.held_letters.back().contents
 		$open.play()
 		return
 	letter_sprite.visible = true
@@ -33,12 +34,12 @@ func show_letter():
 	tween.tween_property(letter_sprite, "position", Vector2(-84.0, 0.0), 0.5)
 	tween.tween_callback(letter_sprite.play.bind("open"))
 	await letter_sprite.animation_finished
-	letter.text = GameManager.held_letters.back().contents
+	# TODO: letter.text = GameManager.held_letters.back().contents
 
 func close_letter():
 	letter.text = ""
-	if GameManager.gaming:
-		$close.play()
+	# if GameManager.gaming:
+	# 	$close.play()
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_callback(letter_sprite.play.bind("close"))
 	await letter_sprite.animation_finished
