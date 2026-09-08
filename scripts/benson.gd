@@ -16,7 +16,8 @@ var current_flight_time: float = 0:
 	set(val):
 		current_flight_time = val
 		current_flight_time = min(current_flight_time, flight_time)
-		GUI.update_flight(current_flight_time)
+		## TODO: sponge
+		# GUI.update_flight(current_flight_time)
 		
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
@@ -42,18 +43,20 @@ func die():
 	speed = 0
 	jump_velocity = 0
 	dash_velocity = 0
-	GameManager.game_over()
+	## TODO: sponge
+	# GameManager.game_over()
 
 func _ready() -> void:
-	GUI.visible = true
+	
+	# GUI.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	up_direction = Vector3.UP
 	respawn()
 	# TODO: this is not very smart... we wait to make sure all the spawnpoints
 	# for actors have initialized
 	await get_tree().create_timer(10).timeout
-	GameManager.gaming = true
-	GameManager.new_route()
+	# GameManager.gaming = true
+	# GameManager.new_route()
 
 func _physics_process(delta: float) -> void:
 	

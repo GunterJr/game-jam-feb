@@ -11,18 +11,13 @@ config_version=5
 [application]
 
 config/name="Game Jam Feb"
-run/main_scene="uid://bpm2tp8wii4qu"
+run/main_scene="uid://82t42v7w6sgc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout="uid://cjbjljfduvch1"
-
-[autoload]
-
-GUI="uid://368t47su1g8u"
-GameManager="uid://cycqao4smfmhs"
 
 [debug]
 
