@@ -24,7 +24,6 @@ var current_flight_time: float = 0:
 		## TODO: sponge
 		# GUI.update_flight(current_flight_time)
 		flight_time_changed.emit()
-		
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
 # Optional
@@ -55,7 +54,6 @@ func die() -> void:
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	up_direction = Vector3.UP
 	respawn()
 	# TODO: this is not very smart... we wait to make sure all the spawnpoints
 	# for actors have initialized
@@ -65,25 +63,24 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	velocity = current_velocity
-	
 	if Input.is_action_just_pressed("reset"):
 		respawn()
 
-	# Add the gravity.
-	if not is_on_floor():
-		var gravity_strength : float = get_gravity().length()
-		velocity += -up_direction * gravity_strength * delta
-	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	velocity = current_velocity
+	
+	# Add the gravity.
+	if not is_on_floor():
+		var gravity_strength : float = get_gravity().length()
+		velocity += -up_direction * gravity_strength * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity += up_direction * jump_velocity
-		up_direction = Vector3.UP
 		flying = false
 	
 	# Handle flight.
@@ -139,7 +136,8 @@ func _physics_process(delta: float) -> void:
 			velocity = -camera_basis.z * dash_velocity;
 			dash_sound.play()
 			current_flight_time += 0.4
-			# might be removed but thought it was cool -connor
+			
+			# FOV swell
 			var tween : Tween = get_tree().create_tween()
 			tween.tween_property($CameraArm/Camera3D, "fov", 75, .05)
 			tween.tween_property($CameraArm/Camera3D, "fov", 69, .1)
@@ -155,7 +153,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	current_velocity = velocity
 
-## "Refreshes" the players flight time. This method could techincally be placed
-## in any object that "flys".
+## Resets the player's flight time.
 func refresh() -> void:
 	current_flight_time = 0
