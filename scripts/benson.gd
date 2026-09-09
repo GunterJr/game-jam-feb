@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var dash_velocity: float = 10
 
 # Signals
-signal flight_time_changed
+signal flight_time_changed(time_left : float)
 signal died
 
 var flying : bool = false
@@ -21,9 +21,7 @@ var current_flight_time: float = 0:
 	set(val):
 		current_flight_time = val
 		current_flight_time = min(current_flight_time, flight_time)
-		## TODO: sponge
-		# GUI.update_flight(current_flight_time)
-		flight_time_changed.emit()
+		flight_time_changed.emit(current_flight_time)
 var current_velocity : Vector3 = Vector3(0, 0, 0)
 
 # Optional

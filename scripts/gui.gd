@@ -56,6 +56,8 @@ func update_patience(new: float):
 	var out : String = "Queen's Patience: " + str(new)
 	patience_left.text = out
 
+
+## Connects to a player object and updates the flight meter.
 func update_flight(new: float):
 	new = snappedf(new, 0.1)
 	var out : String = "FLIGHT: " + str(new)

@@ -125,3 +125,5 @@ honey_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9007504, 0.09811757, -1.4054432)
 
 [node name="GUI" parent="." unique_id=901090881 instance=ExtResource("4_64h5n")]
+
+[connection signal="flight_time_changed" from="Benson" to="GUI" method="update_flight"]
